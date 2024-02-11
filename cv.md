@@ -5,4 +5,4 @@ layout: post
 categories: media
 ---
 
-{{ site.url }}/assets/mydoc.pdf
+<object data="../assets/manlinzhang.pdf" width="1000" height="1000" type='application/pdf'></object>
