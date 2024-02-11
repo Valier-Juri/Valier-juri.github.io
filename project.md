@@ -8,6 +8,6 @@ categories: media
 
 ## Telepresence Robot for Homebound Older Adults
 
-## Diestel Leader Graph in Voronoi Diagram
+## Diestel-Leader Graphs in Voronoi Diagrams
 
 ## Geometric Brownian Motion and Stock Analysis
