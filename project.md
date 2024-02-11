@@ -4,3 +4,10 @@ mathjax: true
 layout: post
 categories: media
 ---
+
+
+## Telepresence Robot for Homebound Older Adults
+
+## Diestel Leader Graph in Voronoi Diagram
+
+## Geometric Brownian Motion and Stock Analysis
