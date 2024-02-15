@@ -5,4 +5,4 @@ layout: post
 categories: media
 ---
 
-<object data="../assets/manlinzhang.pdf" width="1000" height="1000" type='application/pdf'></object>
+<object data="../assets/manlinzhang.pdf" width="800" height="1000" type='application/pdf'></object>
