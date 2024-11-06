@@ -1,6 +1,6 @@
 title: "Manlin Zhang"
 author: "Manlin Zhang"
-description: "University of Wisconsin-Madison"
+description: "University of California, San Diego"
 permalink: /:title/
 lang: "en"
 excerpt_separator: "\n\n\n"
@@ -21,7 +21,7 @@ navigation:                # accepts {file, title, url, icon, sidebaricon}
   - {file: "arts.md", title: "Arts"}
 
 external:                  # shows a footer with social links - for available icons see fontawesome.com/icons
-  - {title: Mail, icon: envelope, url: "mailto:mzhang477@wisc.edu"}
+  - {title: Mail, icon: envelope, url: "mailto:caz020@ucsd.edu"}
   - {title: Github, icon: github, url: "https://github.com/valier-juri/"}
 
 comments:
