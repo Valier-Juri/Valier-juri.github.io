@@ -7,7 +7,7 @@ categories: media
 
 
 ## Telepresence Robot for Homebound Older Adults
-<a href="https://programs.sigchi.org/dis/2024/program/content/164399">
+<a href="https://programs.sigchi.org/dis/2024/program/content/164399">Link</a>
 
 ## <a href="https://mxm.math.wisc.edu/past-semesters/fall-2023/">Diestel-Leader Graphs in Voronoi Diagrams</a>
 Poster:
