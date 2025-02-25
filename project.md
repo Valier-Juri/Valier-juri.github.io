@@ -6,8 +6,7 @@ categories: media
 ---
 
 
-## Telepresence Robot for Homebound Older Adults
-<a href="https://dl.acm.org/doi/pdf/10.1145/3643834.3660710">Link</a>
+## <a href="https://dl.acm.org/doi/pdf/10.1145/3643834.3660710">Telepresence Robot for Homebound Older Adults</a>
 
 ## <a href="https://mxm.math.wisc.edu/past-semesters/fall-2023/">Diestel-Leader Graphs in Voronoi Diagrams</a>
 Poster:
