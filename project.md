@@ -3,6 +3,7 @@ title: "Projects"
 mathjax: true
 layout: page
 categories: media
+permalink: /project
 ---
 
 <style>
