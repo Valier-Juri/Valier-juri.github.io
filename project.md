@@ -55,7 +55,7 @@ categories: media
 </div>
 
 <div class="project-card">
-  <img src="/assets/6.jpg" alt="Voronoi diagram with Diestel-Leader graph" class="project-image">
+  <!img src="/assets/6.jpg" alt="Voronoi diagram with Diestel-Leader graph" class="project-image">
   <div class="project-title">
     Diestel-Leader Graphs in Voronoi Diagrams
   </div>
