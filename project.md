@@ -44,7 +44,6 @@ categories: media
   <img src="/assets/telerobot2elderly.jpg" alt="Telepresence robot project" class="project-image">
   <div class="project-title">
       Telepresence Robot for Homebound Older Adults
-    </a>
   </div>
   <p>
     This project designs a conversational telepresence robot to assist homebound individuals in accessing botanical gardens remotely. Built with ROS, a mobile base, and a camera-equipped rod, it supports voice-driven navigation and GPT-powered plant explanations. Published at DIS 2024.
@@ -55,7 +54,7 @@ categories: media
 </div>
 
 <div class="project-card">
-  <!img src="/assets/6.jpg" alt="Voronoi diagram with Diestel-Leader graph" class="project-image">
+  <img src="/assets/6.jpg" alt="Voronoi diagram with Diestel-Leader graph" class="project-image">
   <div class="project-title">
     Diestel-Leader Graphs in Voronoi Diagrams
   </div>
