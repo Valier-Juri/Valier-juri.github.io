@@ -7,6 +7,8 @@ categories: media
 
 <style>
 .project-card {
+  display: flex;
+  flex-direction: column;
   border: 1px solid #ddd;
   border-radius: 10px;
   padding: 1.5em;
@@ -16,6 +18,12 @@ categories: media
 }
 .project-card:hover {
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.project-image {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 1em;
+  border-radius: 6px;
 }
 .project-title {
   font-size: 1.4em;
@@ -33,13 +41,14 @@ categories: media
 </style>
 
 <div class="project-card">
+  <img src="/assets/telerobot2elderly.jpg" alt="Telepresence robot project" class="project-image">
   <div class="project-title">
     <a href="https://dl.acm.org/doi/pdf/10.1145/3643834.3660710" target="_blank">
       Telepresence Robot for Homebound Older Adults
     </a>
   </div>
   <p>
-    Developed a telepresence robot using Raspberry Pi, ROS, and GPT-based interaction models to assist homebound individuals in accessing virtual tours and remote museum experiences. This project was published at ACM CHI 2024.
+    This project designs a conversational telepresence robot to assist homebound individuals in accessing botanical gardens remotely. Built with ROS, a mobile base, and a camera-equipped rod, it supports voice-driven navigation and GPT-powered plant explanations. Published at ACM CHI 2024.
   </p>
   <div class="project-links">
     <a href="https://dl.acm.org/doi/pdf/10.1145/3643834.3660710" target="_blank">View Paper</a>
@@ -47,16 +56,17 @@ categories: media
 </div>
 
 <div class="project-card">
+  <img src="/assets/6.jpg" alt="Voronoi diagram with Diestel-Leader graph" class="project-image">
   <div class="project-title">
     Diestel-Leader Graphs in Voronoi Diagrams
   </div>
   <p>
-    Explored the structure of Diestel-Leader graphs and their properties when embedded into Voronoi diagrams. This research bridges graph theory and geometric modeling, and was presented at the UW–Madison Math Explorations seminar.
+    Investigated the embedding of Diestel-Leader graphs in Voronoi diagrams and explored their topological implications in metric geometry. Developed during the UW–Madison Math Explorations Seminar, this work bridges graph theory with spatial partitioning concepts.
   </p>
   <div class="project-links">
     <a href="../assets/MXM_Diestel_Leader_Voronoi.pdf" target="_blank">Poster</a>
     <a href="../assets/MXM_Paper_Diestel_Leader.pdf" target="_blank">Paper</a>
   </div>
-  <object data="../assets/MXM_Diestel_Leader_Voronoi.pdf" width="100%" height="300" type='application/pdf'></object>
 </div>
+
 
