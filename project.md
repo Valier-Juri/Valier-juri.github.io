@@ -39,6 +39,7 @@ permalink: /project
 </style>
 
 <div class="project-card">
+  <img src="/assets/bird-preview.png" alt="bird" class="project-image">
   <div class="project-title">
     Bird Call Recognition - Bird CLEF
   </div>
@@ -48,6 +49,7 @@ permalink: /project
 </div>
 
 <div class="project-card">
+  <img src="/assets/fire-preview.jpg.png" alt="Tree Species Classification" class="project-image">
   <div class="project-title">
     ML Modeling and Tree Species Classification
   </div>
@@ -60,6 +62,7 @@ permalink: /project
 </div>
 
 <div class="project-card">
+  <img src="/assets/movie-preview.jpg.png" alt="Movie Recommendation" class="project-image">
   <div class="project-title">
     Movie Recommendation System with Graph Database
   </div>
