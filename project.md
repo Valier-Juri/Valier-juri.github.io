@@ -42,7 +42,7 @@ categories: media
     Bird Call Recognition using Deep Learning and Acoustic-Based Feature Selection
   </div>
   <p>
-    Processed 16K+ bird audio recordings into Mel spectrograms and acoustic features (MFCCs, spectral, rhythmic). Evaluated classical ML models and CNN-based pipelines to classify bird species in noisy environments, achieving 89.8% accuracy with Logistic Regression and improving preprocessing speed by 6x.
+    A sound-based classification project focused on identifying bird species from field recordings. The pipeline involves converting raw audio into spectrograms and engineered acoustic features, and training both classical and deep learning models for species recognition.
   </p>
 </div>
 
@@ -51,7 +51,7 @@ categories: media
     Wildfire Modeling and Tree Species Classification
   </div>
   <p>
-    Predicted plant functional type (PFT) and genus/species distributions using machine learning models on TLS-derived tree lists. Integrated field-collected data and FastFuels API to enhance labeling. Achieved 95%+ accuracy in PFT and 85% in species prediction across California field plots.
+    This project explores how forest plot data can be used to infer ecological characteristics at scale. Using 3D laser scan inputs and government tree inventories, it predicts the distribution of vegetation types and species in wildfire-prone regions of California.
   </p>
   <div class="project-links">
     <a href="https://github.com/Shwyu/Fire-Ready-Forests-Data-Challenge" target="_blank">View on GitHub</a>
@@ -63,7 +63,7 @@ categories: media
     Movie Recommendation System with Graph Database
   </div>
   <p>
-    Built a graph-based movie recommender in Neo4j using 50K+ rows from IMDb and MovieLens datasets. Developed hybrid models combining collaborative and content-based filtering. Reduced Cypher query time by 3x and visualized genre and rating trends via Tableau dashboards.
+    A recommender engine built on graph structures, combining user behavior and movie metadata. The system uses Neo4j to represent relationships between viewers, genres, and ratings, and delivers hybrid suggestions through both collaborative and content-based strategies.
   </p>
   <div class="project-links">
     <a href="https://github.com/Valier-Juri/DSC202-movie-recommendation-database" target="_blank">View on GitHub</a>
@@ -96,4 +96,3 @@ categories: media
     <a href="../assets/MXM_Paper_Diestel_Leader.pdf" target="_blank">Paper</a>
   </div>
 </div>
-
