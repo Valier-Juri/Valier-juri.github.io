@@ -7,36 +7,61 @@ permalink: /project
 ---
 
 <style>
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2em;
+  margin-top: 2em;
+}
+
 .project-card {
-  border: 1px solid #ddd;
+  border: 1px solid #e2e2e2;
   border-radius: 10px;
-  padding: 1.5em;
-  margin-bottom: 2em;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  padding: 1em 1.2em;
+  background-color: #fafafa;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
+
 .project-card:hover {
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
+
 .project-image {
   max-width: 100%;
-  height: auto;
+  max-height: 180px;
+  object-fit: cover;
   border-radius: 8px;
-  margin-bottom: 1em;
+  margin-bottom: 0.8em;
 }
+
 .project-title {
-  font-size: 1.4em;
-  font-weight: bold;
+  font-size: 1.2em;
+  font-weight: 600;
   margin-bottom: 0.5em;
 }
+
+.project-links {
+  margin-top: auto;
+  padding-top: 1em;
+}
+
 .project-links a {
+  font-size: 0.95em;
   margin-right: 1em;
   text-decoration: none;
-  color: #005f99;
+  color: #007acc;
 }
+
 .project-links a:hover {
   text-decoration: underline;
 }
 </style>
+
+<div class="project-grid">
 
 <div class="project-card">
   <img src="/assets/bird-preview.png" alt="bird" class="project-image">
@@ -99,4 +124,6 @@ permalink: /project
     <a href="../assets/MXM_Diestel_Leader_Voronoi.pdf" target="_blank">Poster</a>
     <a href="../assets/MXM_Paper_Diestel_Leader.pdf" target="_blank">Paper</a>
   </div>
+</div>
+
 </div>
