@@ -43,7 +43,6 @@ categories: media
 <div class="project-card">
   <img src="/assets/telerobot2elderly.jpg" alt="Telepresence robot project" class="project-image">
   <div class="project-title">
-    <a href="https://dl.acm.org/doi/pdf/10.1145/3643834.3660710" target="_blank">
       Telepresence Robot for Homebound Older Adults
     </a>
   </div>
