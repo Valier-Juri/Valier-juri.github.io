@@ -6,27 +6,26 @@ lang: "en"
 excerpt_separator: "\n\n\n"
 date_format: "%B %d, %Y"
 
-# Layout settings
-show_excerpts: true        # show excerpts on homepage
-show_frame: true           # enable light gray border
-show_sidebar: true         # ✅ enable sidebar layout
-minimal: false             # dark header (only for top layout)
+# Layout
 
-# Theme setup
-remote_theme: niklasbuschmann/contrast@v2.11
+show_excerpts: true        # show article excerpts on the home page
+show_frame: true           # adds a gray frame to the site
+show_sidebar: false        # show a sidebar instead of the usual header
+minimal: false             # use a dark header
 
-plugins:
-  - jekyll-remote-theme
-  - jekyll-feed
+# Menu
 
-# Sidebar navigation
 navigation:                # accepts {file, title, url, icon, sidebaricon}
-  - {file: "index.html", title: "Home", icon: home}
-  - {file: "cv.md", title: "Resume", icon: file}
-  - {file: "project.md", title: "Projects", icon: code}
-  - {file: "arts.md", title: "Arts", icon: image}
+  - {file: "cv.md", title: "Resume"}
+  - {file: "project.md", title: "Projects"}
+  - {file: "arts.md", title: "Arts"}
 
-# Footer social icons
-external:
+external:                  # shows a footer with social links - for available icons see fontawesome.com/icons
   - {title: Mail, icon: envelope, url: "mailto:caz020@ucsd.edu"}
   - {title: Github, icon: github, url: "https://github.com/valier-juri/"}
+
+comments:
+#  disqus_shortname: ""    # see https://disqus.com/
+#  isso_domain: ""         # see https://posativ.org/isso/
+
+plugins:
