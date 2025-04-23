@@ -39,7 +39,7 @@ categories: media
 
 <div class="project-card">
   <div class="project-title">
-    Bird Call Recognition using Deep Learning and Acoustic-Based Feature Selection
+    Bird Call Recognition - Bird CLEF
   </div>
   <p>
     A sound-based classification project focused on identifying bird species from field recordings. The pipeline involves converting raw audio into spectrograms and engineered acoustic features, and training both classical and deep learning models for species recognition.
@@ -48,7 +48,7 @@ categories: media
 
 <div class="project-card">
   <div class="project-title">
-    Wildfire Modeling and Tree Species Classification
+    ML Modeling and Tree Species Classification
   </div>
   <p>
     This project explores how forest plot data can be used to infer ecological characteristics at scale. Using 3D laser scan inputs and government tree inventories, it predicts the distribution of vegetation types and species in wildfire-prone regions of California.
