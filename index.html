@@ -3,15 +3,55 @@ layout: page
 title: "Home"
 ---
 
-<p>Welcome! I'm currently a Master's student in Data Science at the University of California, San Diego. My research and personal projects are now focused on Machine Learning and Voice Recognition. I am also interested in working on projects applying machine learning on <em>nature, ecology and human</em>.</p>
+<style>
+.intro-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2em;
+}
 
+.intro-text {
+  flex: 1 1 60%;
+  max-width: 650px;
+  line-height: 1.7;
+}
 
+.intro-image {
+  flex: 1 1 35%;
+  max-width: 300px;
+  text-align: center;
+}
 
-<p>Before UCSD, I earned my Bachelor’s degree in Mathematics from the University of Wisconsin–Madison. My academic focuses on graph theory and geometry. At UW, I worked as a research assistant in the <a href="https://peopleandrobots.wisc.edu/">People and Robots Laboratory</a>, contributing to human-robot interaction research under the mentorship of <a href="https://vision.wisc.edu/staff/yaxin_hu/">Yaxin Hu</a> and Prof. <a href="http://bilgemutlu.com/">Bilge Mutlu</a>. I also tutored Pre-Calculus and Calculus at the <a href="https://math.wisc.edu/undergraduate/mlc/">Math Learning Center</a>. </p>
+.intro-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
 
-<p>When I’m not coding or training models, you’ll probably find me out snowboarding, kayaking, or figuring out how not to freak out while scuba diving off the SoCal coast. I like being outside when I have time. Nature helps me reset and think clearer. I also like to draw when I’ve got time, usually stuff inspired by the places I’ve been or things I remember.</p>
+figcaption {
+  font-size: 0.9em;
+  color: #666;
+  margin-top: 0.5em;
+}
+</style>
 
-<figure>
-    <img src="/assets/IMG_1574.JPG" alt="1">
-    <figcaption>Doing robot experiments at Lake Mendota, Winter 2024.</figcaption>
-</figure> 
+<div class="intro-container">
+  <div class="intro-text">
+    <p>Welcome! I'm currently a Master's student in Data Science at the University of California, San Diego. My research and personal projects are now focused on Machine Learning and Voice Recognition. I’m also interested in applying machine learning to <em>nature, ecology, and human-centered problems</em>.</p>
+
+    <p>Before UCSD, I earned my Bachelor’s degree in Mathematics from the University of Wisconsin–Madison. My academic interests were mainly in graph theory and geometry. At UW, I worked as a research assistant in the <a href="https://peopleandrobots.wisc.edu/">People and Robots Laboratory</a>, contributing to human-robot interaction research under the mentorship of <a href="https://vision.wisc.edu/staff/yaxin_hu/">Yaxin Hu</a> and Prof. <a href="http://bilgemutlu.com/">Bilge Mutlu</a>. I also tutored Pre-Calculus and Calculus at the <a href="https://math.wisc.edu/undergraduate/mlc/">Math Learning Center</a>.</p>
+
+    <p>When I’m not coding or training models, you’ll probably find me out snowboarding, kayaking, or trying not to panic while scuba diving off the SoCal coast. Nature helps me reset and think clearer. I also like to draw in my free time—usually scenes inspired by places I’ve been or memories I want to keep.</p>
+  </div>
+
+  <div class="intro-image">
+    <figure>
+      <img src="/assets/IMG_1574.JPG" alt="Doing robot experiments at Lake Mendota, Winter 2024">
+      <figcaption>Doing robot experiments at Lake Mendota, Winter 2024.</figcaption>
+    </figure>
+  </div>
+</div>
+
