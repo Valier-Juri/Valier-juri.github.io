@@ -48,7 +48,7 @@ categories: media
     </a>
   </div>
   <p>
-    This project designs a conversational telepresence robot to assist homebound individuals in accessing botanical gardens remotely. Built with ROS, a mobile base, and a camera-equipped rod, it supports voice-driven navigation and GPT-powered plant explanations. Published at ACM CHI 2024.
+    This project designs a conversational telepresence robot to assist homebound individuals in accessing botanical gardens remotely. Built with ROS, a mobile base, and a camera-equipped rod, it supports voice-driven navigation and GPT-powered plant explanations. Published at DIS 2024.
   </p>
   <div class="project-links">
     <a href="https://dl.acm.org/doi/pdf/10.1145/3643834.3660710" target="_blank">View Paper</a>
@@ -61,7 +61,7 @@ categories: media
     Diestel-Leader Graphs in Voronoi Diagrams
   </div>
   <p>
-    Investigated the embedding of Diestel-Leader graphs in Voronoi diagrams and explored their topological implications in metric geometry. Developed during the UW–Madison Math Explorations Seminar, this work bridges graph theory with spatial partitioning concepts.
+    Investigated the embedding of Diestel-Leader graphs in Voronoi diagrams and explored their topological implications in metric geometry. Developed during the UW–Madison MXM Seminar, this work bridges graph theory with spatial partitioning concepts.
   </p>
   <div class="project-links">
     <a href="../assets/MXM_Diestel_Leader_Voronoi.pdf" target="_blank">Poster</a>
