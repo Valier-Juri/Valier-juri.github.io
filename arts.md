@@ -4,57 +4,50 @@ layout: page
 permalink: /arts
 ---
 
-<!-- CSS Styling -->
 <style>
 .art-section {
   margin-bottom: 4em;
 }
 
 .art-title {
-  font-size: 1.4em;
+  font-size: 1.5em;
   font-weight: 700;
-  margin-bottom: 0.3em;
-  color: #333;
+  margin-bottom: 0.8em;
 }
 
-.art-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5em;
+.masonry-grid {
+  column-count: 3;
+  column-gap: 1.5em;
 }
 
-.art-grid figure {
-  width: 280px;
-  aspect-ratio: 3 / 4; /* Ensures consistency */
-  position: relative;
+.masonry-grid figure {
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 1.5em;
+  break-inside: avoid;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
   overflow: hidden;
-  border-radius: 10px;
-  background-color: #f9f9f9;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
   transition: transform 0.3s ease;
   cursor: zoom-in;
 }
 
-.art-grid figure:hover {
-  transform: scale(1.02);
-}
-
-.art-grid img {
+.masonry-grid img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
   display: block;
-  transition: 0.3s ease;
+  border-bottom: 1px solid #eee;
 }
 
-.art-grid figcaption {
-  font-size: 0.9em;
+.masonry-grid figcaption {
   text-align: center;
-  color: #666;
-  margin-top: 0.4em;
+  padding: 0.5em 0.8em;
+  font-size: 0.95em;
+  color: #444;
 }
 
-/* Fullscreen lightbox */
+/* Lightbox for zoom */
 .lightbox-modal {
   display: none;
   position: fixed;
@@ -74,14 +67,14 @@ permalink: /arts
 }
 </style>
 
-<!-- Lightbox Container -->
+<!-- Lightbox functionality -->
 <div id="lightbox" class="lightbox-modal" onclick="this.classList.remove('active')">
   <img id="lightbox-img" src="">
 </div>
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.art-grid img').forEach(img => {
+  document.querySelectorAll('.masonry-grid img').forEach(img => {
     img.addEventListener('click', () => {
       const lightbox = document.getElementById('lightbox');
       const lightboxImg = document.getElementById('lightbox-img');
@@ -92,41 +85,44 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
-<!-- === Animated Manga === -->
+<!-- === Featured Animated Manga === -->
 <div class="art-section">
   <div class="art-title">Animated Manga</div>
-  <p><em>Vivi</em> – A short manga loop originally designed as video with BGM, adapted here as a GIF preview.</p>
-  <div class="art-grid">
+  <div class="masonry-grid">
     <figure>
-      <img src="/assets/manga-animation.gif" alt="Animated Manga">
+      <img src="/assets/manga-animation.gif" alt="Vivi">
       <figcaption>Vivi</figcaption>
     </figure>
   </div>
 </div>
 
-<!-- === Illustration Storybook === -->
+<!-- === Sequential and Themed Artworks === -->
 <div class="art-section">
-  <div class="art-title">Illustration Storybook</div>
-  <p><em>Kana</em> – A quiet narrative through light and gesture.</p>
-  <div class="art-grid">
+  <div class="art-title">Artworks</div>
+  <div class="masonry-grid">
     <figure>
       <img src="/assets/illustration1.jpg" alt="Kana 1">
       <figcaption>Kana 1</figcaption>
     </figure>
-  </div>
-</div>
-
-<!-- === Surrealism === -->
-<div class="art-section">
-  <div class="art-title">Surrealism</div>
-  <p>A few introspective moments captured in dreams and distortions.</p>
-  <div class="art-grid">
     <figure>
       <img src="/assets/illustration2.jpg" alt="Sistina">
       <figcaption>Sistina</figcaption>
     </figure>
+    <figure>
+      <img src="/assets/manga1.jpg" alt="Manga Page 1">
+      <figcaption>Manga Page 1</figcaption>
+    </figure>
+    <figure>
+      <img src="/assets/girl1.jpg" alt="Girl 1">
+      <figcaption>Girl 1</figcaption>
+    </figure>
+    <figure>
+      <img src="/assets/girl2.jpg" alt="Girl 2">
+      <figcaption>Girl 2</figcaption>
+    </figure>
+    <figure>
+      <img src="/assets/manga2.jpg" alt="Manga Page 2">
+      <figcaption>Manga Page 2</figcaption>
+    </figure>
   </div>
 </div>
-
-
-
