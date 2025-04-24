@@ -36,30 +36,27 @@ permalink: /arts
 
 <!-- === Animated Manga GIF === -->
 <div class="art-section">
-  <div class="art-title">Featured: Animated Manga Preview</div>
-  <p>This animated manga was originally created as a short video piece with music. Here's the standalone GIF version, preserving the flow and visual rhythm of the original.</p>
+  <div class="art-title">Animated Manga</div>
+  <p>Vivi</p>
   <img src="/assets/manga-animation.gif" alt="Animated Manga Preview" style="max-width: 100%; border-radius: 10px;">
 </div>
 
-<!-- === Sequential Art Section === -->
+
+<!-- === Illustration Section === -->
 <div class="art-section">
-  <div class="art-title">Sequential Art – Black and White Manga</div>
-  <p>A few selected pages from my manga work, emphasizing emotional storytelling and cinematic framing in black and white.</p>
+  <div class="art-title">Illustration Storybook - </div>
+  <p>Kana.</p>
   <div class="art-grid">
-    <img src="/assets/manga1.jpg" alt="Manga Page 1">
-    <img src="/assets/manga2.jpg" alt="Manga Page 2">
-    <img src="/assets/manga3.jpg" alt="Manga Page 3">
+    <img src="/assets/illustration1.jpg" alt="Kana 1">
   </div>
 </div>
 
-<!-- === Girl Illustration Section === -->
+<!-- === Surrealism === -->
 <div class="art-section">
-  <div class="art-title">Illustration Series – Portraits of a Girl</div>
-  <p>A personal exploration through character-driven illustrations — quiet, introspective, and gentle in color and tone.</p>
+  <div class="art-title">Surrealism Art </div>
+  <p>.</p>
   <div class="art-grid">
-    <img src="/assets/girl1.jpg" alt="Girl Art 1">
-    <img src="/assets/girl2.jpg" alt="Girl Art 2">
-    <img src="/assets/girl3.jpg" alt="Girl Art 3">
+    <img src="/assets/illustration2.jpg" alt="Sistina">
   </div>
 </div>
 
