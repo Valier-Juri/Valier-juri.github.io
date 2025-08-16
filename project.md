@@ -104,8 +104,8 @@ permalink: /project
     <div class="project-title">Diestel-Leader Graphs in Voronoi Diagrams</div>
     <p>Investigated the embedding of Diestel-Leader graphs in Voronoi diagrams and explored their topological implications in metric geometry. Developed during the UW–Madison MXM Seminar, this work bridges graph theory with spatial partitioning concepts.</p>
     <div class="project-links">
-      <a href="../assets/MXM_Diestel_Leader_Voronoi.pdf" target="_blank">Poster</a>
-      <a href="../assets/MXM_Paper_Diestel_Leader.pdf" target="_blank">Paper</a>
+      <a href="/assets/MXM_Diestel_Leader_Voronoi.pdf" target="_blank">Poster</a>
+      <a href="/assets/MXM_Paper_Diestel_Leader.pdf" target="_blank">Paper</a>
     </div>
   </div>
 </div>

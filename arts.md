@@ -108,21 +108,5 @@ document.addEventListener('DOMContentLoaded', () => {
       <img src="/assets/illustration2.jpg" alt="Sistina">
       <figcaption>Sistina</figcaption>
     </figure>
-    <figure>
-      <img src="/assets/manga1.jpg" alt="Manga Page 1">
-      <figcaption>Manga Page 1</figcaption>
-    </figure>
-    <figure>
-      <img src="/assets/girl1.jpg" alt="Girl 1">
-      <figcaption>Girl 1</figcaption>
-    </figure>
-    <figure>
-      <img src="/assets/girl2.jpg" alt="Girl 2">
-      <figcaption>Girl 2</figcaption>
-    </figure>
-    <figure>
-      <img src="/assets/manga2.jpg" alt="Manga Page 2">
-      <figcaption>Manga Page 2</figcaption>
-    </figure>
   </div>
 </div>
