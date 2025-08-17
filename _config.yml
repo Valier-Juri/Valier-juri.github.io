@@ -1,6 +1,6 @@
 title: "Manlin Zhang"
 author: "Manlin Zhang"
-description: "University of California, San Diego"
+description: "数据科学 · 机器学习 · 艺术创作"
 permalink: /:title/
 lang: "en"
 excerpt_separator: "\n\n\n"
@@ -16,13 +16,15 @@ minimal: false             # use a dark header
 # Menu
 
 navigation:                # accepts {file, title, url, icon, sidebaricon}
-  - {file: "cv.md", title: "Resume"}
-  - {file: "project.md", title: "Projects"}
-  - {file: "arts.md", title: "Arts"}
+  - {file: "index.html", title: "首页"}
+  - {file: "project.md", title: "项目"}
+  - {file: "arts.md", title: "艺术"}
+  - {file: "cv.md", title: "简历"}
 
 external:                  # shows a footer with social links - for available icons see fontawesome.com/icons
-  - {title: Mail, icon: envelope, url: "mailto:caz020@ucsd.edu"}
-  - {title: Github, icon: github, url: "https://github.com/valier-juri/"}
+  - {title: 邮件, icon: envelope, url: "mailto:caz020@ucsd.edu"}
+  - {title: GitHub, icon: github, url: "https://github.com/valier-juri/"}
+  - {title: LinkedIn, icon: linkedin, url: "#"}
 
 comments:
 #  disqus_shortname: ""    # see https://disqus.com/

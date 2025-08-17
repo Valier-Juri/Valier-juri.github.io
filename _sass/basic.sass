@@ -17,7 +17,9 @@ body
     color: $light
 
 h1, h2, h3, h4, h5, h6
+  font-family: $heading-font
   font-weight: $heading-weight
+  color: $accent1
 
 b, strong, th
   font-weight: $font-weight + 200
@@ -28,8 +30,11 @@ p
 a
   color: $link-color
   text-decoration: inherit
+  transition: color 0.3s ease
   &:hover
-    text-decoration: underline
+    color: $accent2
+    text-decoration: none
+    border-bottom: 1px solid $accent2
 
 header a, footer a, aside a
   color: inherit
@@ -45,10 +50,10 @@ article:not(:last-of-type)
   border-bottom: 1px solid reduce(14)
 
 blockquote
-  background: reduce(6)
-  border-left: 3px solid reduce(90)
+  background: rgba($accent3, 0.1)
+  border-left: 3px solid $accent1
   padding: 1px 1.5em
-  opacity: .75
+  opacity: .85
 
 blockquote, figure
   margin: 1em 0
@@ -60,9 +65,14 @@ li
   margin: .25em 0
 
 img
-  border-radius: 2px
+  border-radius: 4px
   max-width: 100%
   height: auto
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1)
+  transition: transform 0.3s ease, box-shadow 0.3s ease
+  &:hover
+    transform: translateY(-3px)
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15)
 
 table
   display: inline-block

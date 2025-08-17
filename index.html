@@ -4,23 +4,68 @@ title: "Home"
 ---
 
 <style>
+.hero-section {
+  position: relative;
+  margin: -1.5em -1.5em 2em;
+  padding: 5em 2em;
+  background-color: rgba(169, 132, 103, 0.08);
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('/assets/your-photo.jpg') no-repeat center center;
+  background-size: cover;
+  opacity: 0.06;
+  z-index: 0;
+  filter: grayscale(40%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-title {
+  font-size: 2.6em;
+  margin-bottom: 0.2em;
+  letter-spacing: 0.03em;
+  color: #A98467;
+}
+
+.hero-subtitle {
+  font-size: 1.2em;
+  margin-bottom: 1.5em;
+  font-weight: 300;
+  color: #4A4A4A;
+}
+
 .intro-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 2em;
+  gap: 2.5em;
+  margin: 3em 0;
 }
 
 .intro-text {
   flex: 1 1 60%;
   max-width: 650px;
-  line-height: 1.7;
+  line-height: 1.8;
 }
 
 .intro-image {
   flex: 1 1 35%;
-  max-width: 300px;
+  max-width: 320px;
   text-align: center;
 }
 
@@ -28,23 +73,38 @@ title: "Home"
   max-width: 100%;
   height: auto;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  filter: saturate(0.95);
+}
+
+.intro-image img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
 }
 
 figcaption {
   font-size: 0.9em;
-  color: #666;
-  margin-top: 0.5em;
+  color: #7D8C85;
+  margin-top: 0.8em;
+  font-style: italic;
 }
 </style>
 
+<div class="hero-section">
+  <div class="hero-content">
+    <h1 class="hero-title">Manlin Zhang</h1>
+    <p class="hero-subtitle">数据科学 · 机器学习 · 艺术创作</p>
+  </div>
+</div>
+
 <div class="intro-container">
   <div class="intro-text">
-    <p>Welcome! I'm currently a Master's student in Data Science at the University of California, San Diego. My research and personal projects are now focused on Machine Learning and Voice Recognition. I’m also interested in applying machine learning to <em>nature, ecology, and human-centered problems</em>.</p>
+    <p>Welcome! I'm currently a Master's student in Data Science at the University of California, San Diego. My research and personal projects are now focused on Machine Learning and Voice Recognition. I'm also interested in applying machine learning to <em>nature, ecology, and human-centered problems</em>.</p>
 
-    <p>Before UCSD, I earned my Bachelor’s degree in Mathematics from the University of Wisconsin–Madison. My academic interests were mainly in graph theory and geometry. At UW, I worked as a research assistant in the <a href="https://peopleandrobots.wisc.edu/">People and Robots Laboratory</a>, contributing to human-robot interaction research under the mentorship of <a href="https://vision.wisc.edu/staff/yaxin_hu/">Yaxin Hu</a> and Prof. <a href="http://bilgemutlu.com/">Bilge Mutlu</a>. I also tutored Pre-Calculus and Calculus at the <a href="https://math.wisc.edu/undergraduate/mlc/">Math Learning Center</a>.</p>
+    <p>Before UCSD, I earned my Bachelor's degree in Mathematics from the University of Wisconsin–Madison. My academic interests were mainly in graph theory and geometry. At UW, I worked as a research assistant in the <a href="https://peopleandrobots.wisc.edu/">People and Robots Laboratory</a>, contributing to human-robot interaction research under the mentorship of <a href="https://vision.wisc.edu/staff/yaxin_hu/">Yaxin Hu</a> and Prof. <a href="http://bilgemutlu.com/">Bilge Mutlu</a>. I also tutored Pre-Calculus and Calculus at the <a href="https://math.wisc.edu/undergraduate/mlc/">Math Learning Center</a>.</p>
 
-    <p>When I’m not coding or training models, you’ll probably find me out snowboarding, kayaking, or trying not to panic while scuba diving off the SoCal coast. Nature helps me reset and think clearer. I also like to draw in my free time, usually scenes inspired by places I’ve been or memories I want to keep.</p>
+    <p>When I'm not coding or training models, you'll probably find me out snowboarding, kayaking, or trying not to panic while scuba diving off the SoCal coast. Nature helps me reset and think clearer. I also like to draw in my free time, usually scenes inspired by places I've been or memories I want to keep.</p>
   </div>
 
   <div class="intro-image">
@@ -55,69 +115,161 @@ figcaption {
   </div>
 </div>
 
-<h2><a href="/project">Projects</a></h2>
+<h2 class="section-heading"><a href="/project">Projects</a></h2>
 
 <style>
+.section-heading {
+  position: relative;
+  margin: 2.5em 0 1.5em;
+  padding-bottom: 0.5em;
+  font-size: 1.8em;
+}
+
+.section-heading::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background-color: #A98467;
+}
+
+.section-heading a {
+  color: #4A4A4A;
+  text-decoration: none;
+}
+
 .project-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2em;
+  margin-bottom: 2.5em;
+}
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
   display: flex;
-  gap: 1.5em;
-  flex-wrap: wrap;
-  margin-bottom: 2em;
+  flex-direction: column;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
 }
 
 .project-thumb {
   position: relative;
   overflow: hidden;
-  border-radius: 10px;
-  flex: 1 1 250px;
-  max-width: 250px;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  height: 200px;
 }
 
 .project-thumb img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
   display: block;
-  transition: transform 0.3s ease, filter 0.3s ease;
+  transition: transform 0.5s ease;
 }
 
-.project-thumb:hover img {
-  transform: scale(1.07);
-  filter: brightness(1.1);
+.project-card:hover .project-thumb img {
+  transform: scale(1.05);
 }
 
-.project-caption {
+.project-info {
+  padding: 1.2em;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.2em;
+  margin-bottom: 0.5em;
+  color: #4A4A4A;
+}
+
+.project-desc {
+  font-size: 0.9em;
+  color: #666;
+  margin-bottom: 1em;
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+.project-link {
+  align-self: flex-start;
+  color: #A98467;
+  font-weight: 500;
+  font-size: 0.9em;
+  text-decoration: none;
+  padding: 0.3em 0;
+  position: relative;
+}
+
+.project-link::after {
+  content: "";
   position: absolute;
   bottom: 0;
-  background: rgba(0,0,0,0.6);
-  color: white;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #A98467;
+  transition: width 0.3s ease;
+}
+
+.project-link:hover::after {
   width: 100%;
-  text-align: center;
-  padding: 0.4em;
-  font-size: 0.95em;
 }
 </style>
 
 <div class="project-preview-grid">
-  <a href="https://github.com/Shwyu/Fire-Ready-Forests-Data-Challenge" class="project-thumb" target="_blank">
-    <img src="/assets/fire-preview.jpg.png" alt="Fire Modeling">
-    <div class="project-caption">Wildfire Tree Modeling</div>
-  </a>
+  <div class="project-card">
+    <div class="project-thumb">
+      <img src="/assets/fire-preview.jpg.png" alt="Fire Modeling">
+    </div>
+    <div class="project-info">
+      <h3 class="project-title">Wildfire Tree Modeling</h3>
+      <p class="project-desc">ML modeling to predict tree species distribution in wildfire-prone regions of California using 3D laser scan data.</p>
+      <a href="https://github.com/Shwyu/Fire-Ready-Forests-Data-Challenge" class="project-link" target="_blank">查看项目 →</a>
+    </div>
+  </div>
 
-  <a href="https://github.com/Valier-Juri/DSC202-movie-recommendation-database" class="project-thumb" target="_blank">
-    <img src="/assets/movie-preview.jpg.png" alt="Movie Recommender">
-    <div class="project-caption">Movie Recommender</div>
-  </a>
+  <div class="project-card">
+    <div class="project-thumb">
+      <img src="/assets/movie-preview.jpg.png" alt="Movie Recommender">
+    </div>
+    <div class="project-info">
+      <h3 class="project-title">Movie Recommendation System</h3>
+      <p class="project-desc">A graph-based recommender engine using Neo4j to represent relationships between viewers, genres, and movie ratings.</p>
+      <a href="https://github.com/Valier-Juri/DSC202-movie-recommendation-database" class="project-link" target="_blank">查看项目 →</a>
+    </div>
+  </div>
+  
+  <div class="project-card">
+    <div class="project-thumb">
+      <img src="/assets/telerobot2elderly.jpg" alt="Telepresence Robot">
+    </div>
+    <div class="project-info">
+      <h3 class="project-title">Telepresence Robot</h3>
+      <p class="project-desc">A conversational telepresence robot designed to assist homebound older adults in accessing botanical gardens remotely.</p>
+      <a href="https://dl.acm.org/doi/pdf/10.1145/3643834.3660710" class="project-link" target="_blank">阅读论文 →</a>
+    </div>
+  </div>
 </div>
 
-<p><a href="/project">See all projects →</a></p>
+<p><a href="/project" class="project-link">查看所有项目 →</a></p>
 
-<hr>
+<h2 class="section-heading"><a href="/arts">艺术作品</a></h2>
 
-<h2><a href="/arts">Arts</a></h2>
-<div>
-  <p><a href="/arts">View art gallery →</a></p>
+<div class="art-preview">
+  <p>我在闲暇时间喜欢创作插画和动画，主要受到旅行经历和记忆的启发。</p>
+  <p><a href="/arts" class="project-link">浏览作品集 →</a></p>
 </div>
 

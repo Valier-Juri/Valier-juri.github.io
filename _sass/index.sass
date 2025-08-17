@@ -1,11 +1,15 @@
 $font-size: calc(0.8rem + 0.2vw) !default
 $font-weight: 400 !default
-$font-family: "PT Sans", -apple-system, "Helvetica Neue", "Segoe UI", "Roboto", sans-serif !default
+$font-family: "Lato", -apple-system, "Helvetica Neue", "Segoe UI", "Roboto", sans-serif !default
+$heading-font: "Playfair Display", Georgia, serif !default
 $heading-weight: 600 !default
 $line-height: 1.6 !default
-$link-color: #68f !default
-$dark: #212228 !default
-$light: #ffffff !default
+$link-color: #8B7765 !default // 温暖的棕色调
+$dark: #4A4A4A !default // 柔和的深灰色
+$light: #F5F1EA !default // 米色背景
+$accent1: #A98467 !default // 陶土色
+$accent2: #7D8C85 !default // 橄榄灰色
+$accent3: #B6A48B !default // 浅棕色
 
 @function reduce ($percent)
   @return rgba(mix($dark, $light), $percent / 100)
