@@ -1,11 +1,22 @@
-$font-size: calc(0.8rem + 0.2vw) !default
-$font-weight: 400 !default
-$font-family: "PT Sans", -apple-system, "Helvetica Neue", "Segoe UI", "Roboto", sans-serif !default
-$heading-weight: 600 !default
-$line-height: 1.6 !default
-$link-color: #68f !default
-$dark: #212228 !default
-$light: #ffffff !default
+// Font variables
+$font-family-serif: 'Lora', serif
+$font-family-sans: 'Open Sans', sans-serif
+
+// Color palette - Oil Painting Inspired
+$bg-color: #F5F5DC // Beige
+$text-color: #4a4a4a // Dark Gray for text
+$heading-color: #3d3d3d // Darker Gray for headings
+$accent-color: #8B4513 // SaddleBrown
+$link-color: #5A9 // A muted, elegant blue/green
+$meta-color: #888 // for dates, etc.
+
+$font-size: 17px
+$font-weight: 400
+$font-family: $font-family-sans
+$heading-weight: 700
+$line-height: 1.7
+$dark: #212228 // Kept for dark mode logic if needed
+$light: #ffffff // Kept for dark mode logic if needed
 
 @function reduce ($percent)
   @return rgba(mix($dark, $light), $percent / 100)

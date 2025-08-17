@@ -1,3 +1,5 @@
+@import 'index'
+
 body
   display: flex
   flex-direction: column
@@ -12,17 +14,24 @@ body > header, body > footer
   justify-content: space-between
 
 body > header, body > article, body > footer
-  padding: 1.5em
+  padding: 2em
+  max-width: 800px
+  margin: 0 auto
+  width: 100%
 
 article header
   margin-bottom: 1.5em
 
 article header h1
-  font-size: 1.7em
-  margin: 0 0 .1em
+  font-size: 2.2em
+  margin: 0 0 .2em
 
 nav
-  margin: .5em -1.2em
+  margin: .5em -1.5em
 
 nav a
-  margin: .5em 1.2em
+  margin: .5em 1.5em
+  font-family: $font-family-sans
+  font-weight: 700
+  text-transform: uppercase
+  font-size: 0.9em

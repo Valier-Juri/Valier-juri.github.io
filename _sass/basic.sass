@@ -1,6 +1,9 @@
+@import 'index'
+@import 'font'
+
 body
-  background: $light
-  color: $dark
+  background: $bg-color
+  color: $text-color
   font-family: $font-family
   font-weight: $font-weight
   font-size: $font-size
@@ -17,6 +20,8 @@ body
     color: $light
 
 h1, h2, h3, h4, h5, h6
+  font-family: $font-family-serif
+  color: $heading-color
   font-weight: $heading-weight
 
 b, strong, th
@@ -33,22 +38,27 @@ a
 
 header a, footer a, aside a
   color: inherit
+  text-decoration: none
+  &:hover
+    color: $link-color
 
 header time
-  color: reduce(100)
+  color: $meta-color
 
 hr
   border: 1px solid reduce(30)
   margin: 2em 0
+  border-bottom: 1px solid #eee
 
 article:not(:last-of-type)
   border-bottom: 1px solid reduce(14)
 
 blockquote
-  background: reduce(6)
-  border-left: 3px solid reduce(90)
+  background: darken($bg-color, 3%)
+  border-left: 3px solid $accent-color
   padding: 1px 1.5em
-  opacity: .75
+  opacity: .85
+  font-style: italic
 
 blockquote, figure
   margin: 1em 0
@@ -71,26 +81,30 @@ table
   border-spacing: 1px
   border-radius: 2px
   box-shadow: 0 0 0 1px reduce(12) inset
+  box-shadow: 0 0 0 1px darken($bg-color, 10%)
 
 th, td
   padding: .5em 1em
   box-shadow: 0 0 0 1px reduce(12)
+  box-shadow: 0 0 0 1px darken($bg-color, 10%)
 
 tr:hover, tr:nth-child(odd) td
-  background: reduce(4)
+  background: darken($bg-color, 4%)
 
 pre
-  background: reduce(12)
-  border-radius: 2px
-  font-size: .8em
+  background: #282c34 // A nice dark background for code
+  color: #abb2bf // Light text on dark bg
+  border-radius: 4px
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace
+  font-size: .9em
   margin: 1.5em 0
   padding: .8em 1.2em
   overflow-x: auto
 
 \:not(pre) > code
   font-size: .9em
-  background: reduce(15)
-  opacity: .7
-  border-radius: 2px
+  background: darken($bg-color, 8%)
+  color: $accent-color
+  border-radius: 3px
   margin: 0 .1em
   padding: .2em .4em
