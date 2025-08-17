@@ -5,7 +5,8 @@
 
 html
   background: lighten($dark, 70%)
-  padding: 0 calc(38% - 22em)
+  // 移除过大的左右留白，避免在宽屏下出现空白带
+  padding: 0
 
 body
   box-shadow: 0 0 .3em lighten($dark, 65%)
@@ -15,8 +16,9 @@ body > header, body > footer
   color: $light
 
 @media (min-width: 32em)
+  // 为中大屏幕保持适度内边距，使用固定值替代百分比计算，防止过宽留白
   body > header, body > article, body > footer
-    padding: 1.75em calc(22% - 6em)
+    padding: 1.75em 1em
 
 @media (prefers-color-scheme: dark)
   html
