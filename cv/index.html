@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Resume | Manlin Zhang</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Manlin Zhang">
+<meta name="generator" content="Jekyll v4.2.2">
+<link rel="canonical" href="/cv/">
+
+<link rel="stylesheet" href="/assets/css/index.css">
+
+
+
+<link rel="stylesheet" href="/assets/katex/katex.min.css">
+<script defer src="/assets/katex/katex.min.js"></script>
+<script defer src="/assets/katex/contrib/auto-render.min.js" onload="renderMathInElement(document.body)"></script>
+
+
+
+<link rel="stylesheet" href="/assets/css/sidebar.css" media="screen and (min-width: 70em)">
+<aside style="display: none">
+  <div class="sidebar-content">
+    <nav class="main-nav"><a aria-label="Home" href="/"  data-nav-item>
+        <svg aria-hidden="true" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#home"></use></svg>
+        <span aria-hidden="true">Home</span>
+        <div class="ripple-effect"></div>
+      </a><a aria-label="Blog" href="/blog/"  data-nav-item>
+        <svg aria-hidden="true" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#"></use></svg>
+        <span aria-hidden="true">Blog</span>
+        <div class="ripple-effect"></div>
+      </a><a aria-label="Projects" href="/project"  data-nav-item>
+        <svg aria-hidden="true" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#"></use></svg>
+        <span aria-hidden="true">Projects</span>
+        <div class="ripple-effect"></div>
+      </a><a aria-label="Resume" href="/cv/" class="selected" data-nav-item>
+        <svg aria-hidden="true" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#"></use></svg>
+        <span aria-hidden="true">Resume</span>
+        <div class="ripple-effect"></div>
+      </a></nav>
+    
+    <div class="sidebar-bottom">
+      <nav class="bottom-nav"><a aria-label="About Me" href="/about/"  data-nav-item>
+          <svg aria-hidden="true" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#user"></use></svg>
+          <span aria-hidden="true">About Me</span>
+          <div class="ripple-effect"></div>
+        </a><a aria-label="Mail" href="mailto:caz020@ucsd.edu"  data-nav-item>
+          <svg aria-hidden="true" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#envelope"></use></svg>
+          <span aria-hidden="true">Mail</span>
+          <div class="ripple-effect"></div>
+        </a><a aria-label="Github" href="https://github.com/valier-juri/"  data-nav-item>
+          <svg aria-hidden="true" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#github"></use></svg>
+          <span aria-hidden="true">Github</span>
+          <div class="ripple-effect"></div>
+        </a></nav>
+      <div class="description">University of California, San Diego</div>
+    </div>
+  </div>
+</aside>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // 为所有导航链接添加点击波纹效果
+  const navItems = document.querySelectorAll('[data-nav-item]');
+  
+  navItems.forEach(item => {
+    item.addEventListener('click', function(e) {
+      // 创建波纹效果
+      const ripple = this.querySelector('.ripple-effect');
+      if (ripple) {
+        ripple.style.animation = 'none';
+        ripple.offsetHeight; // 触发重排
+        ripple.style.animation = 'gentleRipple 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+      }
+      
+      // 添加更柔和的点击反馈
+      this.style.transform = 'scale(0.98)'; // 减少缩放幅度
+      setTimeout(() => {
+        this.style.transform = '';
+      }, 200); // 增加持续时间
+    });
+    
+    // 添加键盘导航支持
+    item.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        this.click();
+      }
+    });
+  });
+  
+  // 为选中的导航项添加活跃状态动画
+  const selectedItem = document.querySelector('.selected');
+  if (selectedItem) {
+    selectedItem.style.animation = 'gentleSelectedPulse 3s ease-in-out infinite';
+  }
+});
+</script>
+
+
+
+
+<header>
+  <a href="/" class="title">Manlin Zhang</a>
+  <nav><a href="/" ><svg aria-label="Home" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#home"></use></svg></a><a href="/blog/" >Blog</a><a href="/project" >Projects</a><a href="/cv/" class="selected">Resume</a></nav>
+
+</header>
+
+<article>
+  <header>
+  <h1><a href="/cv/">Resume</a></h1><time datetime=""></time>
+</header>
+
+  <object data="/assets/Resume_manlinzhang.pdf" width="800" height="1000" type="application/pdf"></object>
+
+  
+</article>
+
+
+
+<footer>
+  <div>University of California, San Diego</div>
+  <nav><a href="/about/" ><svg aria-label="About Me" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#user"></use></svg></a><a href="mailto:caz020@ucsd.edu" ><svg aria-label="Mail" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#envelope"></use></svg></a><a href="https://github.com/valier-juri/" ><svg aria-label="Github" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#github"></use></svg></a></nav>
+
+</footer>
+
+
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Projects | Manlin Zhang</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Manlin Zhang">
+<meta name="generator" content="Jekyll v4.2.2">
+<link rel="canonical" href="/project">
+
+<link rel="stylesheet" href="/assets/css/index.css">
+
+
+
+<link rel="stylesheet" href="/assets/katex/katex.min.css">
+<script defer src="/assets/katex/katex.min.js"></script>
+<script defer src="/assets/katex/contrib/auto-render.min.js" onload="renderMathInElement(document.body)"></script>
+
+
+
+<link rel="stylesheet" href="/assets/css/sidebar.css" media="screen and (min-width: 70em)">
+<aside style="display: none">
+  <div class="sidebar-content">
+    <nav class="main-nav"><a aria-label="Home" href="/"  data-nav-item>
+        <svg aria-hidden="true" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#home"></use></svg>
+        <span aria-hidden="true">Home</span>
+        <div class="ripple-effect"></div>
+      </a><a aria-label="Blog" href="/blog/"  data-nav-item>
+        <svg aria-hidden="true" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#"></use></svg>
+        <span aria-hidden="true">Blog</span>
+        <div class="ripple-effect"></div>
+      </a><a aria-label="Projects" href="/project" class="selected" data-nav-item>
+        <svg aria-hidden="true" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#"></use></svg>
+        <span aria-hidden="true">Projects</span>
+        <div class="ripple-effect"></div>
+      </a><a aria-label="Resume" href="/cv/"  data-nav-item>
+        <svg aria-hidden="true" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#"></use></svg>
+        <span aria-hidden="true">Resume</span>
+        <div class="ripple-effect"></div>
+      </a></nav>
+    
+    <div class="sidebar-bottom">
+      <nav class="bottom-nav"><a aria-label="About Me" href="/about/"  data-nav-item>
+          <svg aria-hidden="true" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#user"></use></svg>
+          <span aria-hidden="true">About Me</span>
+          <div class="ripple-effect"></div>
+        </a><a aria-label="Mail" href="mailto:caz020@ucsd.edu"  data-nav-item>
+          <svg aria-hidden="true" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#envelope"></use></svg>
+          <span aria-hidden="true">Mail</span>
+          <div class="ripple-effect"></div>
+        </a><a aria-label="Github" href="https://github.com/valier-juri/"  data-nav-item>
+          <svg aria-hidden="true" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#github"></use></svg>
+          <span aria-hidden="true">Github</span>
+          <div class="ripple-effect"></div>
+        </a></nav>
+      <div class="description">University of California, San Diego</div>
+    </div>
+  </div>
+</aside>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // 为所有导航链接添加点击波纹效果
+  const navItems = document.querySelectorAll('[data-nav-item]');
+  
+  navItems.forEach(item => {
+    item.addEventListener('click', function(e) {
+      // 创建波纹效果
+      const ripple = this.querySelector('.ripple-effect');
+      if (ripple) {
+        ripple.style.animation = 'none';
+        ripple.offsetHeight; // 触发重排
+        ripple.style.animation = 'gentleRipple 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+      }
+      
+      // 添加更柔和的点击反馈
+      this.style.transform = 'scale(0.98)'; // 减少缩放幅度
+      setTimeout(() => {
+        this.style.transform = '';
+      }, 200); // 增加持续时间
+    });
+    
+    // 添加键盘导航支持
+    item.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        this.click();
+      }
+    });
+  });
+  
+  // 为选中的导航项添加活跃状态动画
+  const selectedItem = document.querySelector('.selected');
+  if (selectedItem) {
+    selectedItem.style.animation = 'gentleSelectedPulse 3s ease-in-out infinite';
+  }
+});
+</script>
+
+
+
+
+<header>
+  <a href="/" class="title">Manlin Zhang</a>
+  <nav><a href="/" ><svg aria-label="Home" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#home"></use></svg></a><a href="/blog/" >Blog</a><a href="/project" class="selected">Projects</a><a href="/cv/" >Resume</a></nav>
+
+</header>
+
+<article>
+  <header><h1>Projects</h1></header>
+  <style>
+.project-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 2em;
+  margin-bottom: 3em;
+  padding: 1em;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  background-color: #fafafa;
+}
+
+.project-row:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.project-image {
+  flex: 0 0 200px;
+  max-width: 200px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.project-content {
+  flex: 1;
+}
+
+.project-title {
+  font-size: 1.3em;
+  font-weight: bold;
+  margin-bottom: 0.4em;
+}
+
+.project-links {
+  margin-top: 0.8em;
+}
+
+.project-links a {
+  font-size: 0.95em;
+  margin-right: 1em;
+  text-decoration: none;
+  color: #007acc;
+}
+
+.project-links a:hover {
+  text-decoration: underline;
+}
+</style>
+
+<div class="project-row">
+  <img src="/assets/bird-preview.png" alt="Bird project" class="project-image" />
+  <div class="project-content">
+    <div class="project-title">Bird Call Recognition - Bird CLEF</div>
+    <p>A sound-based classification project focused on identifying bird species from field recordings. The pipeline involves converting raw audio into spectrograms and engineered acoustic features, and training both classical and deep learning models for species recognition.</p>
+  </div>
+</div>
+
+<div class="project-row">
+  <img src="/assets/fire-preview.jpg.png" alt="Tree Species Classification" class="project-image" />
+  <div class="project-content">
+    <div class="project-title">ML Modeling and Tree Species Classification</div>
+    <p>This project explores how forest plot data can be used to infer ecological characteristics at scale. Using 3D laser scan inputs and government tree inventories, it predicts the distribution of vegetation types and species in wildfire-prone regions of California.</p>
+    <div class="project-links">
+      <a href="https://github.com/Shwyu/Fire-Ready-Forests-Data-Challenge" target="_blank">View on GitHub</a>
+    </div>
+  </div>
+</div>
+
+<div class="project-row">
+  <img src="/assets/movie-preview.jpg.png" alt="Movie Recommendation" class="project-image" />
+  <div class="project-content">
+    <div class="project-title">Movie Recommendation System with Graph Database</div>
+    <p>A recommender engine built on graph structures, combining user behavior and movie metadata. The system uses Neo4j to represent relationships between viewers, genres, and ratings, and delivers hybrid suggestions through both collaborative and content-based strategies.</p>
+    <div class="project-links">
+      <a href="https://github.com/Valier-Juri/DSC202-movie-recommendation-database" target="_blank">View on GitHub</a>
+    </div>
+  </div>
+</div>
+
+<div class="project-row">
+  <img src="/assets/telerobot2elderly.jpg" alt="Telepresence robot project" class="project-image" />
+  <div class="project-content">
+    <div class="project-title">Telepresence Robot for Homebound Older Adults</div>
+    <p>This project designs a conversational telepresence robot to assist homebound individuals in accessing botanical gardens remotely. Built with ROS, a mobile base, and a camera-equipped rod, it supports voice-driven navigation and GPT-powered plant explanations. Published at DIS 2024.</p>
+    <div class="project-links">
+      <a href="https://dl.acm.org/doi/pdf/10.1145/3643834.3660710" target="_blank">View Paper</a>
+    </div>
+  </div>
+</div>
+
+<div class="project-row">
+  <img src="/assets/6.jpg.png" alt="Voronoi diagram with Diestel-Leader graph" class="project-image" />
+  <div class="project-content">
+    <div class="project-title">Diestel-Leader Graphs in Voronoi Diagrams</div>
+    <p>Investigated the embedding of Diestel-Leader graphs in Voronoi diagrams and explored their topological implications in metric geometry. Developed during the UW–Madison MXM Seminar, this work bridges graph theory with spatial partitioning concepts.</p>
+    <div class="project-links">
+      <a href="/assets/MXM_Diestel_Leader_Voronoi.pdf" target="_blank">Poster</a>
+      <a href="/assets/MXM_Paper_Diestel_Leader.pdf" target="_blank">Paper</a>
+    </div>
+  </div>
+</div>
+
+</article>
+
+
+
+<footer>
+  <div>University of California, San Diego</div>
+  <nav><a href="/about/" ><svg aria-label="About Me" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#user"></use></svg></a><a href="mailto:caz020@ucsd.edu" ><svg aria-label="Mail" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#envelope"></use></svg></a><a href="https://github.com/valier-juri/" ><svg aria-label="Github" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#github"></use></svg></a></nav>
+
+</footer>
+
+
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>About Me | Manlin Zhang</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Manlin Zhang">
+<meta name="generator" content="Jekyll v4.2.2">
+<link rel="canonical" href="/about/">
+
+<link rel="stylesheet" href="/assets/css/index.css">
+
+
+
+
+
+<link rel="stylesheet" href="/assets/css/sidebar.css" media="screen and (min-width: 70em)">
+<aside style="display: none">
+  <div class="sidebar-content">
+    <nav class="main-nav"><a aria-label="Home" href="/"  data-nav-item>
+        <svg aria-hidden="true" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#home"></use></svg>
+        <span aria-hidden="true">Home</span>
+        <div class="ripple-effect"></div>
+      </a><a aria-label="Blog" href="/blog/"  data-nav-item>
+        <svg aria-hidden="true" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#"></use></svg>
+        <span aria-hidden="true">Blog</span>
+        <div class="ripple-effect"></div>
+      </a><a aria-label="Projects" href="/project"  data-nav-item>
+        <svg aria-hidden="true" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#"></use></svg>
+        <span aria-hidden="true">Projects</span>
+        <div class="ripple-effect"></div>
+      </a><a aria-label="Resume" href="/cv/"  data-nav-item>
+        <svg aria-hidden="true" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#"></use></svg>
+        <span aria-hidden="true">Resume</span>
+        <div class="ripple-effect"></div>
+      </a></nav>
+    
+    <div class="sidebar-bottom">
+      <nav class="bottom-nav"><a aria-label="About Me" href="/about/" class="selected" data-nav-item>
+          <svg aria-hidden="true" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#user"></use></svg>
+          <span aria-hidden="true">About Me</span>
+          <div class="ripple-effect"></div>
+        </a><a aria-label="Mail" href="mailto:caz020@ucsd.edu"  data-nav-item>
+          <svg aria-hidden="true" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#envelope"></use></svg>
+          <span aria-hidden="true">Mail</span>
+          <div class="ripple-effect"></div>
+        </a><a aria-label="Github" href="https://github.com/valier-juri/"  data-nav-item>
+          <svg aria-hidden="true" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#github"></use></svg>
+          <span aria-hidden="true">Github</span>
+          <div class="ripple-effect"></div>
+        </a></nav>
+      <div class="description">University of California, San Diego</div>
+    </div>
+  </div>
+</aside>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // 为所有导航链接添加点击波纹效果
+  const navItems = document.querySelectorAll('[data-nav-item]');
+  
+  navItems.forEach(item => {
+    item.addEventListener('click', function(e) {
+      // 创建波纹效果
+      const ripple = this.querySelector('.ripple-effect');
+      if (ripple) {
+        ripple.style.animation = 'none';
+        ripple.offsetHeight; // 触发重排
+        ripple.style.animation = 'gentleRipple 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+      }
+      
+      // 添加更柔和的点击反馈
+      this.style.transform = 'scale(0.98)'; // 减少缩放幅度
+      setTimeout(() => {
+        this.style.transform = '';
+      }, 200); // 增加持续时间
+    });
+    
+    // 添加键盘导航支持
+    item.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        this.click();
+      }
+    });
+  });
+  
+  // 为选中的导航项添加活跃状态动画
+  const selectedItem = document.querySelector('.selected');
+  if (selectedItem) {
+    selectedItem.style.animation = 'gentleSelectedPulse 3s ease-in-out infinite';
+  }
+});
+</script>
+
+
+
+
+<header>
+  <a href="/" class="title">Manlin Zhang</a>
+  <nav><a href="/" ><svg aria-label="Home" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#home"></use></svg></a><a href="/blog/" >Blog</a><a href="/project" >Projects</a><a href="/cv/" >Resume</a></nav>
+
+</header>
+
+<article>
+  <header><h1>About Me</h1></header>
+  <style>
+  .intro-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2em;
+  }
+
+  .intro-text {
+    flex: 1 1 60%;
+    min-width: 300px;
+    line-height: 1.7;
+  }
+
+  .intro-image {
+    flex: 1 1 35%;
+    max-width: 300px;
+    text-align: center;
+  }
+
+  .intro-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  figcaption {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 0.5em;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .intro-container {
+      flex-direction: column;
+      align-items: center;
+    }
+    .intro-image {
+      order: -1;
+      margin-bottom: 1.5em;
+    }
+  }
+</style>
+
+<div class="intro-container">
+  <div class="intro-text">
+    <p>Welcome! I'm currently a Master's student in Data Science at the University of California, San Diego. My research and personal projects are now focused on Machine Learning and Voice Recognition. I'm also interested in applying machine learning to <em>nature, ecology, and human-centered problems</em>.</p>
+
+    <p>Before UCSD, I earned my Bachelor's degree in Mathematics from the University of Wisconsin–Madison. My academic interests were mainly in graph theory and geometry. At UW, I worked as a research assistant in the <a href="https://peopleandrobots.wisc.edu/">People and Robots Laboratory</a>, contributing to human-robot interaction research under the mentorship of <a href="https://vision.wisc.edu/staff/yaxin_hu/">Yaxin Hu</a> and Prof. <a href="http://bilgemutlu.com/">Bilge Mutlu</a>. I also tutored Pre-Calculus and Calculus at the <a href="https://math.wisc.edu/undergraduate/mlc/">Math Learning Center</a>.</p>
+
+    <p>When I'm not coding or training models, you'll probably find me out snowboarding, kayaking, or trying not to panic while scuba diving off the SoCal coast. Nature helps me reset and think clearer. I also like to draw in my free time, usually scenes inspired by places I've been or memories I want to keep.</p>
+  </div>
+
+  <div class="intro-image">
+    <figure>
+      <img src="/assets/IMG_3393.JPG" alt="Me" />
+      <figcaption>Sunset at Brooklyn, 2024.</figcaption>
+    </figure>
+  </div>
+</div>
+
+</article>
+
+
+
+<footer>
+  <div>University of California, San Diego</div>
+  <nav><a href="/about/" class="selected"><svg aria-label="About Me" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#user"></use></svg></a><a href="mailto:caz020@ucsd.edu" ><svg aria-label="Mail" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#envelope"></use></svg></a><a href="https://github.com/valier-juri/" ><svg aria-label="Github" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#github"></use></svg></a></nav>
+
+</footer>
+
+
+</html>
