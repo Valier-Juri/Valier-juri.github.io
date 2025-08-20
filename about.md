@@ -42,17 +42,43 @@ title: "About Me"
     .intro-container {
       flex-direction: column;
       align-items: center;
+      gap: 1.5em;
     }
     .intro-image {
       order: -1;
-      margin-bottom: 1.5em;
+      margin-bottom: 1em;
+      max-width: 250px;
+    }
+    .intro-text {
+      min-width: auto;
+      text-align: center;
+    }
+    .intro-text p {
+      font-size: 0.95em;
+      line-height: 1.6;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .intro-container {
+      gap: 1em;
+    }
+    .intro-image {
+      max-width: 200px;
+    }
+    .intro-text p {
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    figcaption {
+      font-size: 0.8em;
     }
   }
 </style>
 
 <div class="intro-container">
   <div class="intro-text">
-    <p>Welcome! I'm currently a Master's student in Data Science at the University of California, San Diego. My research and personal projects are now focused on Machine Learning and Voice Recognition. I'm also interested in applying machine learning to <em>nature, ecology, and human-centered problems</em>.</p>
+    <p>I'm currently a Master's student in Data Science at the University of California, San Diego. My research and personal projects are now focused on Machine Learning and Voice Recognition. I'm also interested in applying machine learning to <em>nature, ecology, and human-centered problems</em>.</p>
 
     <p>Before UCSD, I earned my Bachelor's degree in Mathematics from the University of Wisconsin–Madison. My academic interests were mainly in graph theory and geometry. At UW, I worked as a research assistant in the <a href="https://peopleandrobots.wisc.edu/">People and Robots Laboratory</a>, contributing to human-robot interaction research under the mentorship of <a href="https://vision.wisc.edu/staff/yaxin_hu/">Yaxin Hu</a> and Prof. <a href="http://bilgemutlu.com/">Bilge Mutlu</a>. I also tutored Pre-Calculus and Calculus at the <a href="https://math.wisc.edu/undergraduate/mlc/">Math Learning Center</a>.</p>
 

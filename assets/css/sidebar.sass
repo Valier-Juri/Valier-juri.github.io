@@ -21,7 +21,8 @@ body > article
   max-width: 50em
   animation: pageSlideIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) // 主内容区域滑入动画
 
-aside
+// 桌面端sidebar样式
+aside.desktop-sidebar
   display: block!important
   position: fixed
   overflow: auto
@@ -192,9 +193,193 @@ nav a:hover .icon, .main-nav a:hover .icon, .bottom-nav a:hover .icon
     transform: translateX(0)
     opacity: 1
 
+// 移动端topbar样式
+.mobile-topbar
+  display: flex !important
+  flex-wrap: nowrap
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  background: linear-gradient(135deg, #2d5016 0%, #3a651d 100%)
+  color: #ffffff
+  padding: 0.8em 1em
+  z-index: 1000
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2)
+  align-items: center
+
+  // 防止内容左右溢出
+  overflow-x: auto
+  -webkit-overflow-scrolling: touch
+
+  .site-title
+    font-size: 1.1em
+    font-weight: bold
+    color: #ffffff
+    margin: 0
+    margin-right: auto
+    white-space: nowrap
+    flex: 0 0 auto
+    max-width: 40vw
+    overflow: hidden
+    text-overflow: ellipsis
+
+  .mobile-nav
+    display: flex
+    flex: 1 1 auto
+    justify-content: flex-end
+    flex-wrap: nowrap
+    gap: 0.8em
+    align-items: center
+    overflow-x: auto
+
+    a
+      color: #ffffff
+      text-decoration: none
+      font-size: 0.9em
+      padding: 0.4em 0.6em
+      border-radius: 6px
+      transition: all 0.2s ease
+      display: flex
+      align-items: center
+      gap: 0.3em
+      white-space: nowrap
+      flex: 0 0 auto
+
+      &:hover
+        background-color: rgba(255, 255, 255, 0.2)
+        transform: translateY(-1px)
+
+      .icon
+        width: 16px
+        height: 16px
+        fill: currentColor
+
+// 深色模式样式
+@media (prefers-color-scheme: dark)
+  aside.desktop-sidebar
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%) !important
+
+  nav a, .main-nav a, .bottom-nav a
+    color: #ffffff !important
+    
+    &:hover
+      background: rgba(74, 144, 226, 0.8) !important
+      color: #000000 !important
+
+      .icon
+        color: #000000 !important
+
+    &.selected
+      background: rgba(74, 144, 226, 0.9) !important
+      color: #000000 !important
+
+  .description
+    color: #cccccc !important
+
+  .bottom-nav
+    border-top-color: rgba(255, 255, 255, 0.3) !important
+
+    &::before
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent) !important
+
+  // 深色模式下的移动端topbar
+  .mobile-topbar
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)
+
+    .mobile-nav a:hover
+      background-color: rgba(74, 144, 226, 0.3)
+
+// 强制深色模式样式
+[data-theme="dark"] aside.desktop-sidebar,
+.dark-mode aside.desktop-sidebar,
+html[data-bs-theme="dark"] aside.desktop-sidebar
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%) !important
+  color: #ffffff !important
+
+[data-theme="dark"] nav a,
+[data-theme="dark"] .main-nav a,
+[data-theme="dark"] .bottom-nav a,
+.dark-mode nav a,
+.dark-mode .main-nav a,
+.dark-mode .bottom-nav a,
+html[data-bs-theme="dark"] nav a,
+html[data-bs-theme="dark"] .main-nav a,
+html[data-bs-theme="dark"] .bottom-nav a
+  color: #ffffff !important
+
+// 移动端响应式设计 - 将sidebar变成topbar
+@media (max-width: 70em)
+  body
+    margin: 0
+    max-width: 100%
+    font-size: 1em
+
+  // 强制隐藏桌面端sidebar
+  aside.desktop-sidebar, .sidebar-content
+    display: none !important
+    visibility: hidden !important
+    opacity: 0 !important
+    pointer-events: none !important
+    position: absolute !important
+    left: -9999px !important
+
+  body > article
+    margin: 0 1em
+    padding: 1em 0
+    max-width: 100%
+
+  // 显示移动端topbar
+  .mobile-topbar
+    display: flex !important
+    visibility: visible !important
+    opacity: 1 !important
+    pointer-events: auto !important
+
+  // 为移动端topbar添加内容偏移
+  body
+    padding-top: 4em
+
+// 平板设备支持
+@media (max-width: 1024px) and (min-width: 70em)
+  body
+    margin: 0 0 0 14em
+    font-size: 1.02em
+
+  aside.desktop-sidebar
+    width: 10em
+    padding: 1.8em
+
+  body > article
+    margin: 0 3em
+    max-width: 60em
+
+// 小屏幕设备
+@media (max-width: 480px)
+  body
+    margin: 0
+    font-size: 0.95em
+
+  body > article
+    margin: 0 0.5em
+    padding: 0.8em 0
+
+  .mobile-topbar
+    padding: 0.6em 0.8em
+
+    .site-title
+      font-size: 1em
+
+    .mobile-nav
+      gap: 0.5em
+
+      a
+        font-size: 0.8em
+        padding: 0.3em 0.5em
+
 // 响应式动画调整
 @media (prefers-reduced-motion: reduce)
-  aside, nav a, .icon, .description
+  aside.desktop-sidebar, nav a, .icon, .description
     transition: none
     animation: none
   

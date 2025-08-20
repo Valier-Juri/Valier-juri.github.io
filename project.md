@@ -24,6 +24,68 @@ permalink: /project
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
+/* Dark Mode Support for Projects */
+@media (prefers-color-scheme: dark) {
+  .project-row {
+    background-color: #1a1a1a !important;
+    border-color: rgba(74, 144, 226, 0.4) !important;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3) !important;
+    color: #ffffff !important;
+  }
+
+  .project-row:hover {
+    background-color: #2d2d2d !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5) !important;
+  }
+
+  .project-title {
+    color: #ffffff !important;
+  }
+
+  .project-content {
+    color: #ffffff !important;
+  }
+
+  .project-content p {
+    color: #e0e0e0 !important;
+  }
+}
+
+/* Force Dark Mode for Projects */
+[data-theme="dark"] .project-row,
+.dark-mode .project-row,
+html[data-bs-theme="dark"] .project-row {
+  background-color: #1a1a1a !important;
+  border-color: rgba(74, 144, 226, 0.4) !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3) !important;
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .project-row:hover,
+.dark-mode .project-row:hover,
+html[data-bs-theme="dark"] .project-row:hover {
+  background-color: #2d2d2d !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5) !important;
+}
+
+[data-theme="dark"] .project-title,
+.dark-mode .project-title,
+html[data-bs-theme="dark"] .project-title {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .project-content,
+.dark-mode .project-content,
+html[data-bs-theme="dark"] .project-content {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .project-content p,
+.dark-mode .project-content p,
+html[data-bs-theme="dark"] .project-content p {
+  color: #e0e0e0 !important;
+}
+
 .project-image {
   flex: 0 0 200px;
   max-width: 200px;
@@ -54,6 +116,90 @@ permalink: /project
 
 .project-links a:hover {
   text-decoration: underline;
+}
+
+/* Dark Mode Support for Project Links */
+@media (prefers-color-scheme: dark) {
+  .project-links a {
+    color: #4A90E2 !important;
+  }
+
+  .project-links a:hover {
+    color: #6BB6FF !important;
+  }
+}
+
+/* Force Dark Mode for Project Links */
+[data-theme="dark"] .project-links a,
+.dark-mode .project-links a,
+html[data-bs-theme="dark"] .project-links a {
+  color: #4A90E2 !important;
+}
+
+[data-theme="dark"] .project-links a:hover,
+.dark-mode .project-links a:hover,
+html[data-bs-theme="dark"] .project-links a:hover {
+  color: #6BB6FF !important;
+}
+
+/* Mobile Responsive Design for Projects */
+@media (max-width: 768px) {
+  .project-row {
+    flex-direction: column;
+    gap: 1em;
+    padding: 0.8em;
+    margin-bottom: 2em;
+  }
+
+  .project-image {
+    flex: none;
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+  }
+
+  .project-title {
+    font-size: 1.2em;
+  }
+
+  .project-content p {
+    font-size: 0.9em;
+    line-height: 1.5;
+  }
+
+  .project-links {
+    margin-top: 0.6em;
+  }
+
+  .project-links a {
+    display: inline-block;
+    margin-bottom: 0.5em;
+    padding: 0.5em 1em;
+    background: rgba(0, 122, 204, 0.1);
+    border-radius: 5px;
+    border: 1px solid rgba(0, 122, 204, 0.3);
+  }
+}
+
+@media (max-width: 480px) {
+  .project-row {
+    padding: 0.6em;
+    margin-bottom: 1.5em;
+  }
+
+  .project-title {
+    font-size: 1.1em;
+  }
+
+  .project-content p {
+    font-size: 0.85em;
+  }
+
+  .project-links a {
+    font-size: 0.9em;
+    padding: 0.4em 0.8em;
+  }
 }
 </style>
 

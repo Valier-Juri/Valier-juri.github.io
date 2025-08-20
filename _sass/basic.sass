@@ -21,11 +21,54 @@ body
     background: $dark
     color: $light
 
+  h1, h2, h3, h4, h5, h6
+    color: #ffffff !important
+    
+    a
+      color: #ffffff !important
+      
+      &:hover
+        color: #ffffff !important
+
+// 强制深色模式标题样式
+[data-theme="dark"], .dark-mode, html[data-bs-theme="dark"]
+  h1, h2, h3, h4, h5, h6
+    color: #ffffff !important
+    
+    a
+      color: #ffffff !important
+      
+      &:hover
+        color: #ffffff !important
+
+// 确保article标题也是白色
+[data-theme="dark"] article header h1,
+.dark-mode article header h1,
+html[data-bs-theme="dark"] article header h1
+  color: #ffffff !important
+
+// 移动端页面标题样式
+@media (max-width: 768px)
+  article header h1
+    font-size: 1.4em
+    margin-bottom: 0.6em
+
+@media (max-width: 480px)
+  article header h1
+    font-size: 1.2em
+    margin-bottom: 0.5em
+
 h1, h2, h3, h4, h5, h6
   font-family: $font-family-serif
   color: $heading-color
   font-weight: $heading-weight
   text-decoration: none // 移除下划线
+
+// 页面标题样式
+article header h1
+  font-size: 1.8em
+  margin-bottom: 0.8em
+  text-align: left
   
   a
     color: inherit // 继承标题颜色
