@@ -14,7 +14,22 @@
 
 
 <link rel="stylesheet" href="/assets/css/sidebar.css" media="screen and (min-width: 70em)">
-<aside style="display: none">
+
+<!-- Mobile Topbar -->
+<div class="mobile-topbar">
+  <div class="site-title">Manlin Zhang</div>
+  <nav class="mobile-nav">
+    <a href="/" aria-label="Home">
+      <svg aria-hidden="true" class="icon" style="width: 16px; height: 16px;"><use xlink:href="/assets/fontawesome/icons.svg#home"></use></svg>
+    </a>
+    <a href="/blog" aria-label="Blog">Blog</a>
+    <a href="/project" aria-label="Projects">Projects</a>
+    <a href="/cv" aria-label="Resume">Resume</a>
+  </nav>
+</div>
+
+<!-- Desktop Sidebar - 只在桌面端显示 -->
+<aside class="desktop-sidebar" style="display: none">
   <div class="sidebar-content">
     <nav class="main-nav"><a aria-label="Home" href="/"  data-nav-item>
         <svg aria-hidden="true" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#home"></use></svg>
@@ -55,6 +70,49 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+  // 检测屏幕尺寸并显示/隐藏相应的导航
+  function updateNavigation() {
+    const isMobile = window.innerWidth <= 70 * 16; // 70em = 1120px
+    const mobileTopbar = document.querySelector('.mobile-topbar');
+    const desktopSidebar = document.querySelector('.desktop-sidebar');
+    
+    if (isMobile) {
+      // 移动端：隐藏桌面端sidebar，显示移动端topbar
+      if (desktopSidebar) {
+        desktopSidebar.style.display = 'none';
+        desktopSidebar.style.visibility = 'hidden';
+        desktopSidebar.style.opacity = '0';
+        desktopSidebar.style.pointerEvents = 'none';
+      }
+      if (mobileTopbar) {
+        mobileTopbar.style.display = 'flex';
+        mobileTopbar.style.visibility = 'visible';
+        mobileTopbar.style.opacity = '1';
+        mobileTopbar.style.pointerEvents = 'auto';
+      }
+    } else {
+      // 桌面端：显示桌面端sidebar，隐藏移动端topbar
+      if (desktopSidebar) {
+        desktopSidebar.style.display = 'block';
+        desktopSidebar.style.visibility = 'visible';
+        desktopSidebar.style.opacity = '1';
+        desktopSidebar.style.pointerEvents = 'auto';
+      }
+      if (mobileTopbar) {
+        mobileTopbar.style.display = 'none';
+        mobileTopbar.style.visibility = 'hidden';
+        mobileTopbar.style.opacity = '0';
+        mobileTopbar.style.pointerEvents = 'none';
+      }
+    }
+  }
+
+  // 初始调用
+  updateNavigation();
+  
+  // 监听窗口大小变化
+  window.addEventListener('resize', updateNavigation);
+
   // 为所有导航链接添加点击波纹效果
   const navItems = document.querySelectorAll('[data-nav-item]');
   

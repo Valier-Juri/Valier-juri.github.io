@@ -14,7 +14,22 @@
 
 
 <link rel="stylesheet" href="/assets/css/sidebar.css" media="screen and (min-width: 70em)">
-<aside style="display: none">
+
+<!-- Mobile Topbar -->
+<div class="mobile-topbar">
+  <div class="site-title">Manlin Zhang</div>
+  <nav class="mobile-nav">
+    <a href="/" aria-label="Home">
+      <svg aria-hidden="true" class="icon" style="width: 16px; height: 16px;"><use xlink:href="/assets/fontawesome/icons.svg#home"></use></svg>
+    </a>
+    <a href="/blog" aria-label="Blog">Blog</a>
+    <a href="/project" aria-label="Projects">Projects</a>
+    <a href="/cv" aria-label="Resume">Resume</a>
+  </nav>
+</div>
+
+<!-- Desktop Sidebar - 只在桌面端显示 -->
+<aside class="desktop-sidebar" style="display: none">
   <div class="sidebar-content">
     <nav class="main-nav"><a aria-label="Home" href="/" class="selected" data-nav-item>
         <svg aria-hidden="true" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#home"></use></svg>
@@ -55,6 +70,49 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+  // 检测屏幕尺寸并显示/隐藏相应的导航
+  function updateNavigation() {
+    const isMobile = window.innerWidth <= 70 * 16; // 70em = 1120px
+    const mobileTopbar = document.querySelector('.mobile-topbar');
+    const desktopSidebar = document.querySelector('.desktop-sidebar');
+    
+    if (isMobile) {
+      // 移动端：隐藏桌面端sidebar，显示移动端topbar
+      if (desktopSidebar) {
+        desktopSidebar.style.display = 'none';
+        desktopSidebar.style.visibility = 'hidden';
+        desktopSidebar.style.opacity = '0';
+        desktopSidebar.style.pointerEvents = 'none';
+      }
+      if (mobileTopbar) {
+        mobileTopbar.style.display = 'flex';
+        mobileTopbar.style.visibility = 'visible';
+        mobileTopbar.style.opacity = '1';
+        mobileTopbar.style.pointerEvents = 'auto';
+      }
+    } else {
+      // 桌面端：显示桌面端sidebar，隐藏移动端topbar
+      if (desktopSidebar) {
+        desktopSidebar.style.display = 'block';
+        desktopSidebar.style.visibility = 'visible';
+        desktopSidebar.style.opacity = '1';
+        desktopSidebar.style.pointerEvents = 'auto';
+      }
+      if (mobileTopbar) {
+        mobileTopbar.style.display = 'none';
+        mobileTopbar.style.visibility = 'hidden';
+        mobileTopbar.style.opacity = '0';
+        mobileTopbar.style.pointerEvents = 'none';
+      }
+    }
+  }
+
+  // 初始调用
+  updateNavigation();
+  
+  // 监听窗口大小变化
+  window.addEventListener('resize', updateNavigation);
+
   // 为所有导航链接添加点击波纹效果
   const navItems = document.querySelectorAll('[data-nav-item]');
   
@@ -104,30 +162,74 @@ document.addEventListener('DOMContentLoaded', function() {
 <article>
   <header><h1>Home</h1></header>
   <style>
-  .blog-posts {
-    max-width: 800px;
+  .homepage-container {
+    max-width: 1000px;
     margin: 0 auto;
+    padding: 1.5em 0;
+  }
+
+  .section {
+    margin-bottom: 2.5em;
+  }
+
+  .section-title {
+    font-size: 1.8em;
+    color: #3d3d3d;
+    margin-bottom: 1.2em;
+    border-bottom: 2px solid #8B4513;
+    padding-bottom: 0.4em;
+  }
+
+  .page-welcome {
+    text-align: right;
+    margin-bottom: 2em;
+    padding: 1em;
+    background: rgba(139, 69, 19, 0.05);
+    border-radius: 8px;
+    border-right: 3px solid #8B4513;
+  }
+
+  .page-welcome .welcome-text {
+    font-size: 0.9em;
+    color: #8B4513 !important;
+    font-weight: 400;
+    font-style: italic;
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  /* Blog Section */
+  .blog-section {
+    background: linear-gradient(135deg, rgba(139, 69, 19, 0.05), rgba(245, 245, 220, 0.1));
+    padding: 1.2em;
+    border-radius: 8px;
+    border-left: 3px solid #8B4513;
+  }
+
+  .blog-posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.2em;
+    margin-bottom: 1.2em;
   }
 
   .post-item {
-    border-bottom: 1px solid #e0e0e0;
-    padding: 2em 0;
+    background: white;
+    border-radius: 6px;
+    padding: 1em;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
+    border: 1px solid rgba(139, 69, 19, 0.1);
   }
 
   .post-item:hover {
-    background-color: rgba(139, 69, 19, 0.05);
-    padding-left: 1em;
-    border-radius: 8px;
-  }
-
-  .post-item:last-child {
-    border-bottom: none;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
   }
 
   .post-title {
-    font-size: 1.5em;
-    margin: 0 0 0.5em 0;
+    font-size: 1.3em;
+    margin: 0 0 0.8em 0;
     color: #3d3d3d;
   }
 
@@ -149,123 +251,690 @@ document.addEventListener('DOMContentLoaded', function() {
   .post-excerpt {
     line-height: 1.6;
     color: #4a4a4a;
+    margin-bottom: 1em;
   }
 
-  .read-more {
-    display: inline-block;
-    margin-top: 1em;
+  .see-more {
+    text-align: center;
+    margin-top: 2em;
+  }
+
+  .see-more a {
     color: #8B4513;
-    font-weight: 500;
     text-decoration: none;
+    font-weight: 500;
+    padding: 0.8em 2em;
+    border: 2px solid #8B4513;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    display: inline-block;
   }
 
-  .read-more:hover {
+  .see-more a:hover {
+    background: #8B4513;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+  }
+
+  /* Projects Section */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.2em;
+  }
+
+  .project-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(139, 69, 19, 0.1);
+  }
+
+  .project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  }
+
+  .project-image {
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .project-card:hover .project-image {
+    transform: scale(1.05);
+  }
+
+  .project-info {
+    padding: 1em;
+  }
+
+  .project-title {
+    font-size: 1.2em;
+    margin: 0 0 0.5em 0;
+    color: #3d3d3d;
+  }
+
+  .project-description {
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 1em;
+  }
+
+  .project-link {
+    color: #8B4513;
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+  }
+
+  .project-link:hover {
     text-decoration: underline;
   }
 
-  .welcome-message {
-    text-align: center;
-    margin-bottom: 3em;
-    padding: 2em;
-    background: linear-gradient(135deg, rgba(139, 69, 19, 0.1), rgba(245, 245, 220, 0.3));
-    border-radius: 12px;
-    border-left: 4px solid #8B4513;
+  /* Arts Section */
+  .arts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.2em;
   }
 
-  .welcome-message h1 {
-    color: #3d3d3d;
-    margin-bottom: 0.5em;
+  .art-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(139, 69, 19, 0.1);
   }
 
-  .welcome-message p {
-    color: #666;
+  .art-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  }
+
+  .art-image {
+    width: 100%;
+    height: 110px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .art-card:hover .art-image {
+    transform: scale(1.05);
+  }
+
+  .art-info {
+    padding: 1em;
+  }
+
+  .art-title {
     font-size: 1.1em;
-    margin: 0;
+    margin: 0 0 0.5em 0;
+    color: #3d3d3d;
+  }
+
+  .art-description {
+    color: #666;
+    line-height: 1.5;
+    font-size: 0.9em;
+  }
+
+  /* Dark Mode Support */
+  @media (prefers-color-scheme: dark) {
+    body {
+      background: #000000 !important;
+      color: #ffffff !important;
+    }
+
+    .homepage-container {
+      background: #000000 !important;
+      color: #ffffff !important;
+    }
+
+    .section-title {
+      color: #ffffff !important;
+      border-bottom-color: #4A90E2 !important;
+    }
+
+    .blog-section {
+      background: linear-gradient(135deg, rgba(74, 144, 226, 0.15), rgba(20, 20, 20, 0.2)) !important;
+      border-left-color: #4A90E2 !important;
+    }
+
+    .post-item, .project-card, .art-card {
+      background: #1a1a1a !important;
+      border-color: rgba(74, 144, 226, 0.4) !important;
+      color: #ffffff !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5) !important;
+    }
+
+    .post-item:hover, .project-card:hover, .art-card:hover {
+      background: #2d2d2d !important;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6) !important;
+    }
+
+    .post-title, .project-title, .art-title {
+      color: #ffffff !important;
+    }
+
+    .post-title a {
+      color: #ffffff !important;
+    }
+
+    .post-title a:hover {
+      color: #4A90E2 !important;
+    }
+
+    .post-excerpt, .project-description, .art-description {
+      color: #e0e0e0 !important;
+    }
+
+    .post-meta {
+      color: #999999 !important;
+    }
+
+    .page-welcome {
+      background: rgba(74, 144, 226, 0.15) !important;
+      border-right-color: #4A90E2 !important;
+    }
+
+    .page-welcome .welcome-text {
+      color: #4A90E2 !important;
+    }
+
+    .see-more a {
+      color: #4A90E2 !important;
+      border-color: #4A90E2 !important;
+      background: transparent !important;
+    }
+
+    .see-more a:hover {
+      background: #4A90E2 !important;
+      color: #ffffff !important;
+    }
+
+    .project-link {
+      color: #4A90E2 !important;
+    }
+
+    .project-link:hover {
+      color: #6BB6FF !important;
+    }
+  }
+
+  /* Force Dark Mode for better compatibility */
+  [data-theme="dark"], 
+  .dark-mode,
+  html[data-bs-theme="dark"] {
+    background: #000000 !important;
+    color: #ffffff !important;
+  }
+
+  [data-theme="dark"] .homepage-container,
+  .dark-mode .homepage-container,
+  html[data-bs-theme="dark"] .homepage-container {
+    background: #000000 !important;
+    color: #ffffff !important;
+  }
+
+  [data-theme="dark"] .post-item,
+  [data-theme="dark"] .project-card,
+  [data-theme="dark"] .art-card,
+  .dark-mode .post-item,
+  .dark-mode .project-card,
+  .dark-mode .art-card,
+  html[data-bs-theme="dark"] .post-item,
+  html[data-bs-theme="dark"] .project-card,
+  html[data-bs-theme="dark"] .art-card {
+    background: #1a1a1a !important;
+    border-color: rgba(74, 144, 226, 0.4) !important;
+    color: #ffffff !important;
+  }
+
+  [data-theme="dark"] .post-title,
+  [data-theme="dark"] .project-title,
+  [data-theme="dark"] .art-title,
+  .dark-mode .post-title,
+  .dark-mode .project-title,
+  .dark-mode .art-title,
+  html[data-bs-theme="dark"] .post-title,
+  html[data-bs-theme="dark"] .project-title,
+  html[data-bs-theme="dark"] .art-title {
+    color: #ffffff !important;
+  }
+
+  [data-theme="dark"] .post-excerpt,
+  [data-theme="dark"] .project-description,
+  [data-theme="dark"] .art-description,
+  .dark-mode .post-excerpt,
+  .dark-mode .project-description,
+  .dark-mode .art-description,
+  html[data-bs-theme="dark"] .post-excerpt,
+  html[data-bs-theme="dark"] .project-description,
+  html[data-bs-theme="dark"] .art-description {
+    color: #e0e0e0 !important;
+  }
+
+  [data-theme="dark"] .post-meta,
+  .dark-mode .post-meta,
+  html[data-bs-theme="dark"] .post-meta {
+    color: #999999 !important;
+  }
+
+  [data-theme="dark"] .section-title,
+  .dark-mode .section-title,
+  html[data-bs-theme="dark"] .section-title {
+    color: #ffffff !important;
+    border-bottom-color: #4A90E2 !important;
+  }
+
+  [data-theme="dark"] .blog-section,
+  .dark-mode .blog-section,
+  html[data-bs-theme="dark"] .blog-section {
+    background: linear-gradient(135deg, rgba(74, 144, 226, 0.15), rgba(20, 20, 20, 0.2)) !important;
+    border-left-color: #4A90E2 !important;
+  }
+
+  [data-theme="dark"] .page-welcome,
+  .dark-mode .page-welcome,
+  html[data-bs-theme="dark"] .page-welcome {
+    background: rgba(74, 144, 226, 0.15) !important;
+    border-right-color: #4A90E2 !important;
+  }
+
+  [data-theme="dark"] .page-welcome .welcome-text,
+  .dark-mode .page-welcome .welcome-text,
+  html[data-bs-theme="dark"] .page-welcome .welcome-text {
+    color: #4A90E2 !important;
+  }
+
+  /* Mobile-First Responsive Design */
+  @media (max-width: 1200px) {
+    .homepage-container {
+      max-width: 95%;
+      padding: 1em;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .homepage-container {
+      max-width: 100%;
+      padding: 0.5em;
+    }
+    
+    .section {
+      margin-bottom: 1.2em;
+    }
+
+    .section-title {
+      font-size: 1.1em;
+      margin-bottom: 0.6em;
+      padding-bottom: 0.3em;
+    }
+
+    .page-welcome {
+      text-align: center;
+      border-right: none;
+      border-bottom: 2px solid #8B4513;
+      margin-bottom: 1em;
+      padding: 0.6em;
+    }
+
+    .page-welcome .welcome-text {
+      font-size: 0.7em;
+      line-height: 1.2;
+    }
+
+    .blog-posts, .projects-grid, .arts-grid {
+      grid-template-columns: 1fr;
+      gap: 0.8em;
+    }
+
+    .post-item, .project-card, .art-card {
+      padding: 0.6em;
+      margin-bottom: 0.8em;
+    }
+
+    .post-title {
+      font-size: 1em;
+      margin-bottom: 0.4em;
+    }
+
+    .post-meta {
+      font-size: 0.8em;
+      margin-bottom: 0.6em;
+    }
+
+    .post-excerpt {
+      font-size: 0.85em;
+      line-height: 1.4;
+      margin-bottom: 0.6em;
+    }
+
+    .project-image {
+      height: 80px;
+    }
+
+    .art-image {
+      height: 70px;
+    }
+
+    .project-title, .art-title {
+      font-size: 0.95em;
+      margin-bottom: 0.3em;
+    }
+
+    .project-description, .art-description {
+      font-size: 0.8em;
+      line-height: 1.3;
+      margin-bottom: 0.5em;
+    }
+
+    .see-more a {
+      padding: 0.5em 1.2em;
+      font-size: 0.8em;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .homepage-container {
+      padding: 0.3em;
+    }
+
+    .section {
+      margin-bottom: 1em;
+    }
+
+    .section-title {
+      font-size: 1em;
+      margin-bottom: 0.5em;
+    }
+
+    .blog-section {
+      padding: 0.8em;
+    }
+
+    .post-item, .project-card, .art-card {
+      padding: 0.5em;
+      margin-bottom: 0.6em;
+    }
+
+    .post-title {
+      font-size: 0.95em;
+    }
+
+    .post-meta {
+      font-size: 0.75em;
+    }
+
+    .post-excerpt {
+      font-size: 0.8em;
+    }
+
+    .project-image {
+      height: 70px;
+    }
+
+    .art-image {
+      height: 60px;
+    }
+
+    .project-title, .art-title {
+      font-size: 0.9em;
+    }
+
+    .project-description, .art-description {
+      font-size: 0.75em;
+    }
+
+    .see-more a {
+      padding: 0.4em 1em;
+      font-size: 0.75em;
+    }
+  }
+
+  /* Mobile Touch Optimizations */
+  @media (max-width: 768px) {
+    .post-item, .project-card, .art-card {
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+
+    .see-more a, .project-link {
+      -webkit-tap-highlight-color: rgba(74, 144, 226, 0.3);
+      touch-action: manipulation;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  /* Mobile Performance Optimizations */
+  @media (max-width: 768px) {
+    .homepage-container {
+      will-change: auto;
+      transform: translateZ(0);
+    }
+
+    .post-item, .project-card, .art-card {
+      will-change: auto;
+      backface-visibility: hidden;
+    }
   }
 </style>
 
-<div class="welcome-message">
-  <h1>Welcome to My Blog</h1>
-  <p>Thoughts, projects, and insights on data science, machine learning, and life</p>
-</div>
+<script>
+  // Function to detect and apply dark mode
+  function applyDarkMode() {
+    const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const htmlElement = document.documentElement;
+    
+    if (isDarkMode) {
+      htmlElement.setAttribute('data-theme', 'dark');
+      htmlElement.classList.add('dark-mode');
+    } else {
+      htmlElement.setAttribute('data-theme', 'light');
+      htmlElement.classList.remove('dark-mode');
+    }
+  }
 
-<div class="blog-posts">
-  
-  <article class="post-item">
-    <h2 class="post-title">
-      <a href="/welcome-to-my-blog/">Welcome to My Blog</a>
-    </h2>
-    <div class="post-meta">
-      <time datetime="2024-12-19T00:00:00+00:00">
-        December 19, 2024
-      </time>
-      
-        • General
-      
-    </div>
-    <div class="post-excerpt">
-      Welcome to my new blog where I'll be sharing thoughts on data science, machine learning, and life experiences.
-    </div>
-    <a href="/welcome-to-my-blog/" class="read-more">Read more →</a>
-  </article>
-  
-  <article class="post-item">
-    <h2 class="post-title">
-      <a href="/welcome-to-jekyll/">Welcome to Jekyll</a>
-    </h2>
-    <div class="post-meta">
-      <time datetime="2017-03-01T00:00:00+00:00">
-        March 01, 2017
-      </time>
-      
-        • 
-      
-    </div>
-    <div class="post-excerpt">
-      You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when...
-    </div>
-    <a href="/welcome-to-jekyll/" class="read-more">Read more →</a>
-  </article>
-  
-  <article class="post-item">
-    <h2 class="post-title">
-      <a href="/markdown-examples/">Markdown examples</a>
-    </h2>
-    <div class="post-meta">
-      <time datetime="2017-02-01T00:00:00+00:00">
-        February 01, 2017
-      </time>
-      
-        • 
-      
-    </div>
-    <div class="post-excerpt">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo...
-    </div>
-    <a href="/markdown-examples/" class="read-more">Read more →</a>
-  </article>
-  
-  <article class="post-item">
-    <h2 class="post-title">
-      <a href="/advanced-examples/">Advanced examples</a>
-    </h2>
-    <div class="post-meta">
-      <time datetime="2017-01-01T00:00:00+00:00">
-        January 01, 2017
-      </time>
-      
-        • media
-      
-    </div>
-    <div class="post-excerpt">
-      
+  // Apply dark mode on page load
+  document.addEventListener('DOMContentLoaded', applyDarkMode);
 
-    </div>
-    <a href="/advanced-examples/" class="read-more">Read more →</a>
-  </article>
-  
+  // Listen for changes in color scheme preference
+  if (window.matchMedia) {
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyDarkMode);
+  }
 
-  
+  // Force dark mode if needed (for better compatibility)
+  function forceDarkMode() {
+    const htmlElement = document.documentElement;
+    const bodyElement = document.body;
+    
+    // Check if we're in a dark environment
+    const isDarkEnv = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const hasDarkClass = htmlElement.classList.contains('dark-mode');
+    
+    if (isDarkEnv || hasDarkClass) {
+      htmlElement.setAttribute('data-theme', 'dark');
+      htmlElement.classList.add('dark-mode');
+      bodyElement.style.backgroundColor = '#000000';
+      bodyElement.style.color = '#ffffff';
+      
+      // Force all headings to be white
+      const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+      headings.forEach(heading => {
+        heading.style.color = '#ffffff';
+        const links = heading.querySelectorAll('a');
+        links.forEach(link => {
+          link.style.color = '#ffffff';
+        });
+      });
+      
+      // Force section titles to be white
+      const sectionTitles = document.querySelectorAll('.section-title');
+      sectionTitles.forEach(title => {
+        title.style.color = '#ffffff';
+      });
+    }
+  }
+
+  // Apply forced dark mode
+  window.addEventListener('load', forceDarkMode);
+</script>
+
+<div class="homepage-container">
+  <!-- Page Welcome -->
+  <div class="page-welcome">
+    <p class="welcome-text">Welcome to my land, where I'll be sharing thoughts on machine learning, arts and life.</p>
+  </div>
+
+  <!-- Blog Section -->
+  <section class="section blog-section">
+    <h2 class="section-title">Latest Blog Posts</h2>
+    <div class="blog-posts">
+      
+      <article class="post-item">
+        <h3 class="post-title">
+          <a href="/welcome-to-my-blog/">Welcome to My Blog</a>
+        </h3>
+        <div class="post-meta">
+          <time datetime="2024-12-19T00:00:00+00:00">
+            December 19, 2024
+          </time>
+          
+            • General
+          
+        </div>
+        <div class="post-excerpt">
+          Welcome to my new blog where I'll be sharing thoughts on data science, machine learning, and life experiences.
+        </div>
+      </article>
+      
+      <article class="post-item">
+        <h3 class="post-title">
+          <a href="/welcome-to-jekyll/">Welcome to Jekyll</a>
+        </h3>
+        <div class="post-meta">
+          <time datetime="2017-03-01T00:00:00+00:00">
+            March 01, 2017
+          </time>
+          
+            • 
+          
+        </div>
+        <div class="post-excerpt">
+          You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the...
+        </div>
+      </article>
+      
+      <article class="post-item">
+        <h3 class="post-title">
+          <a href="/markdown-examples/">Markdown examples</a>
+        </h3>
+        <div class="post-meta">
+          <time datetime="2017-02-01T00:00:00+00:00">
+            February 01, 2017
+          </time>
+          
+            • 
+          
+        </div>
+        <div class="post-excerpt">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis...
+        </div>
+      </article>
+      
+    </div>
+    <div class="see-more">
+      <a href="/blog">See more posts →</a>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="section">
+    <h2 class="section-title">Featured Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <img src="/assets/fire-preview.jpg.png" alt="Wildfire Tree Modeling" class="project-image">
+        <div class="project-info">
+          <h3 class="project-title">Wildfire Tree Modeling</h3>
+          <p class="project-description">Machine learning model for predicting wildfire impact on forest ecosystems.</p>
+          <a href="https://github.com/Shwyu/Fire-Ready-Forests-Data-Challenge" class="project-link" target="_blank">
+            View Project →
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="/assets/movie-preview.jpg.png" alt="Movie Recommender" class="project-image">
+        <div class="project-info">
+          <h3 class="project-title">Movie Recommender</h3>
+          <p class="project-description">Data-driven movie recommendation system using collaborative filtering.</p>
+          <a href="https://github.com/Valier-Juri/DSC202-movie-recommendation-database" class="project-link" target="_blank">
+            View Project →
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="/assets/bird-preview.png" alt="Bird Species Classification" class="project-image">
+        <div class="project-info">
+          <h3 class="project-title">Bird Species Classification</h3>
+          <p class="project-description">Deep learning model for identifying bird species from audio recordings.</p>
+          <a href="/project" class="project-link">
+            View Project →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Arts Section -->
+  <section class="section">
+    <h2 class="section-title">Art & Illustrations</h2>
+    <div class="arts-grid">
+      <div class="art-card">
+        <img src="/assets/illustration1.jpg" alt="Digital Art 1" class="art-image">
+        <div class="art-info">
+          <h3 class="art-title">Digital Illustration</h3>
+          <p class="art-description">Creative digital artwork inspired by nature and memories.</p>
+        </div>
+      </div>
+
+      <div class="art-card">
+        <img src="/assets/illustration2.jpg" alt="Digital Art 2" class="art-image">
+        <div class="art-info">
+          <h3 class="art-title">Nature Sketch</h3>
+          <p class="art-description">Hand-drawn sketches capturing the beauty of natural landscapes.</p>
+        </div>
+      </div>
+
+      <div class="art-card">
+        <img src="/assets/manga-animation.gif" alt="Animation" class="art-image">
+        <div class="art-info">
+          <h3 class="art-title">Animation</h3>
+          <p class="art-description">Short animated sequences exploring movement and storytelling.</p>
+        </div>
+      </div>
+
+      <div class="art-card">
+        <img src="/assets/6.jpg.png" alt="Mixed Media" class="art-image">
+        <div class="art-info">
+          <h3 class="art-title">Mixed Media</h3>
+          <p class="art-description">Combining traditional and digital techniques for unique expressions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>
 
 

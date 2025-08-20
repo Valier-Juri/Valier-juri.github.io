@@ -10,13 +10,27 @@
 
 body { background: #F5F5DC; color: #4a4a4a; font-family: "Open Sans", sans-serif; font-weight: 400; font-size: 17px; line-height: 1.7; margin: 0; min-height: 100vh; -webkit-text-size-adjust: 100%; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 
-@media (prefers-color-scheme: dark) { body { background: #212228; color: #ffffff; } }
+@media (prefers-color-scheme: dark) { body { background: #212228; color: #ffffff; } h1, h2, h3, h4, h5, h6 { color: #ffffff !important; } h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { color: #ffffff !important; } h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover { color: #ffffff !important; } }
+
+[data-theme="dark"] h1, [data-theme="dark"] h2, [data-theme="dark"] h3, [data-theme="dark"] h4, [data-theme="dark"] h5, [data-theme="dark"] h6, .dark-mode h1, .dark-mode h2, .dark-mode h3, .dark-mode h4, .dark-mode h5, .dark-mode h6, html[data-bs-theme="dark"] h1, html[data-bs-theme="dark"] h2, html[data-bs-theme="dark"] h3, html[data-bs-theme="dark"] h4, html[data-bs-theme="dark"] h5, html[data-bs-theme="dark"] h6 { color: #ffffff !important; }
+
+[data-theme="dark"] h1 a, [data-theme="dark"] h2 a, [data-theme="dark"] h3 a, [data-theme="dark"] h4 a, [data-theme="dark"] h5 a, [data-theme="dark"] h6 a, .dark-mode h1 a, .dark-mode h2 a, .dark-mode h3 a, .dark-mode h4 a, .dark-mode h5 a, .dark-mode h6 a, html[data-bs-theme="dark"] h1 a, html[data-bs-theme="dark"] h2 a, html[data-bs-theme="dark"] h3 a, html[data-bs-theme="dark"] h4 a, html[data-bs-theme="dark"] h5 a, html[data-bs-theme="dark"] h6 a { color: #ffffff !important; }
+
+[data-theme="dark"] h1 a:hover, [data-theme="dark"] h2 a:hover, [data-theme="dark"] h3 a:hover, [data-theme="dark"] h4 a:hover, [data-theme="dark"] h5 a:hover, [data-theme="dark"] h6 a:hover, .dark-mode h1 a:hover, .dark-mode h2 a:hover, .dark-mode h3 a:hover, .dark-mode h4 a:hover, .dark-mode h5 a:hover, .dark-mode h6 a:hover, html[data-bs-theme="dark"] h1 a:hover, html[data-bs-theme="dark"] h2 a:hover, html[data-bs-theme="dark"] h3 a:hover, html[data-bs-theme="dark"] h4 a:hover, html[data-bs-theme="dark"] h5 a:hover, html[data-bs-theme="dark"] h6 a:hover { color: #ffffff !important; }
+
+[data-theme="dark"] article header h1, .dark-mode article header h1, html[data-bs-theme="dark"] article header h1 { color: #ffffff !important; }
+
+@media (max-width: 768px) { article header h1 { font-size: 1.4em; margin-bottom: 0.6em; } }
+
+@media (max-width: 480px) { article header h1 { font-size: 1.2em; margin-bottom: 0.5em; } }
 
 h1, h2, h3, h4, h5, h6 { font-family: "Lora", serif; color: #3d3d3d; font-weight: 700; text-decoration: none; }
 
-h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { color: inherit; text-decoration: none; }
+article header h1 { font-size: 1.8em; margin-bottom: 0.8em; text-align: left; }
 
-h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover { color: inherit; text-decoration: none; }
+article header h1 a { color: inherit; text-decoration: none; }
+
+article header h1 a:hover { color: inherit; text-decoration: none; }
 
 b, strong, th { font-weight: 600; }
 
@@ -177,6 +191,12 @@ a:hover .icon { color: #909194; }
 .highlight .gd { color: #f92672; }
 
 .highlight .gi { color: #a6e22e; }
+
+@media (max-width: 70em) { aside.desktop-sidebar, aside { display: none !important; } body > header { display: none !important; } }
+
+@media (max-width: 768px) { h1 { font-size: 1.5em !important; line-height: 1.3; } h2 { font-size: 1.3em !important; line-height: 1.4; } h3 { font-size: 1.1em !important; line-height: 1.4; } h4 { font-size: 1.0em !important; line-height: 1.4; } h5 { font-size: 0.9em !important; line-height: 1.4; } h6 { font-size: 0.8em !important; line-height: 1.4; } .section-title, .page-title { font-size: 1.4em !important; margin-bottom: 1em; } }
+
+@media (max-width: 480px) { h1 { font-size: 1.3em !important; } h2 { font-size: 1.1em !important; } h3 { font-size: 1.0em !important; } .section-title, .page-title { font-size: 1.2em !important; } }
 
 @media (min-width: 40em) { body > header, body > article, body > footer { padding: 1.75em calc(40% - 17em); } }
 
