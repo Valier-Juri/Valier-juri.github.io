@@ -19,37 +19,184 @@ body > article
   margin: 0 5em
   padding: 2em 0
   max-width: 50em
+  animation: pageSlideIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) // 主内容区域滑入动画
 
 aside
   display: block!important
   position: fixed
   overflow: auto
-  background: darken($dark, 2%)
+  background: linear-gradient(135deg, #2d5016 0%, #3a651d 100%) // 柔和的渐变背景
   color: #fff
   padding: 2.25em
   width: 12em
   top: 0
   bottom: 0
   left: 0
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) // 更柔和的过渡
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.08) // 更柔和的阴影
+
+  &:hover
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.12) // 悬停时阴影更柔和
+
+.sidebar-content
+  display: flex
+  flex-direction: column
+  height: 100%
+  min-height: calc(100vh - 4.5em)
+
+.main-nav
+  flex: 0 0 auto
+  margin: 0 -2.25em
+
+.sidebar-bottom
+  flex: 1
+  display: flex
+  flex-direction: column
+  justify-content: flex-end
+  margin-top: 2em
+
+.bottom-nav
+  flex: 0 0 auto
+  margin: 0 -2.25em
+  border-top: 1px solid rgba(255, 255, 255, 0.15) // 更淡的分隔线
+  padding-top: 1em
+  position: relative
+
+  &::before
+    content: ''
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    height: 1px
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent)
+    animation: gentleShimmer 3s ease-in-out infinite // 更柔和的闪烁
 
 article header h1
   font-size: 2em
 
-nav
-  margin: 0 -2.25em
-
-nav a
+nav a, .main-nav a, .bottom-nav a
   display: block
   margin: 0
   padding: .5em 2.25em
+  position: relative
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) // 更柔和的过渡
+  transform: translateX(0)
+  overflow: hidden
 
-nav a:hover, nav a.selected
-  background: lighten($dark, 2%)
-  text-decoration: inherit
+  &::before
+    content: ''
+    position: absolute
+    top: 0
+    left: -100%
+    width: 100%
+    height: 100%
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.06), transparent) // 更淡的光效
+    transition: left 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    z-index: 1
+
+  &:hover
+    background: rgba(58, 101, 29, 0.8) // 更柔和的悬停背景
+    text-decoration: inherit
+    transform: translateX(4px) // 减少滑动距离
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08) // 更柔和的阴影
+    color: #2d5016 !important // 悬停时整个链接文字变深绿色
+
+    &::before
+      left: 100%
+
+  &.selected
+    background: rgba(74, 122, 42, 0.9) // 更柔和的选中背景
+    transform: translateX(3px) // 减少选中时的位移
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.12)
+
+    &::after
+      content: ''
+      position: absolute
+      right: 0
+      top: 50%
+      transform: translateY(-50%)
+      width: 2px // 更细的指示器
+      height: 50% // 更短的指示器
+      background: rgba(255, 255, 255, 0.8) // 更淡的颜色
+      border-radius: 1px
+      animation: gentlePulse 3s ease-in-out infinite // 更柔和的脉冲
 
 .icon
   margin-right: 1.2em
   color: inherit!important
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) // 更柔和的过渡
+  display: inline-block
+
+nav a:hover .icon, .main-nav a:hover .icon, .bottom-nav a:hover .icon
+  transform: scale(1.05) rotate(2deg) // 减少旋转角度和缩放
+  color: #2d5016 !important // 改为深绿色
 
 .description
-  margin: 2em 0
+  margin: 1em 0 0 0
+  font-size: 0.9em
+  opacity: 0.7
+  transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+
+  &:hover
+    opacity: 0.9
+
+// 波纹效果样式
+.ripple-effect
+  position: absolute
+  border-radius: 50%
+  background: rgba(255, 255, 255, 0.15) // 更淡的波纹
+  transform: scale(0)
+  animation: gentleRipple 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) // 更柔和的波纹
+  pointer-events: none
+  z-index: 2
+
+// 选中状态的脉冲动画
+.selected
+  animation: gentleSelectedPulse 3s ease-in-out infinite !important // 更柔和的脉冲
+
+// 关键帧动画定义 - 更柔和的版本
+
+
+
+@keyframes gentleShimmer
+  0%, 100%
+    opacity: 0.15
+  50%
+    opacity: 0.35
+
+@keyframes gentlePulse
+  0%, 100%
+    opacity: 0.6
+    transform: translateY(-50%) scale(1)
+  50%
+    opacity: 0.9
+    transform: translateY(-50%) scale(1.05)
+
+@keyframes gentleRipple
+  to
+    transform: scale(3) // 减少波纹大小
+    opacity: 0
+
+@keyframes gentleSelectedPulse
+  0%, 100%
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.12)
+  50%
+    box-shadow: 0 2px 24px rgba(0, 0, 0, 0.18)
+
+@keyframes pageSlideIn
+  from
+    transform: translateX(100px)
+    opacity: 0
+  to
+    transform: translateX(0)
+    opacity: 1
+
+// 响应式动画调整
+@media (prefers-reduced-motion: reduce)
+  aside, nav a, .icon, .description
+    transition: none
+    animation: none
+  
+  .ripple-effect
+    animation: none

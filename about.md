@@ -1,0 +1,68 @@
+---
+layout: page
+title: "About Me"
+---
+
+<style>
+  .intro-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2em;
+  }
+
+  .intro-text {
+    flex: 1 1 60%;
+    min-width: 300px;
+    line-height: 1.7;
+  }
+
+  .intro-image {
+    flex: 1 1 35%;
+    max-width: 300px;
+    text-align: center;
+  }
+
+  .intro-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  figcaption {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 0.5em;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .intro-container {
+      flex-direction: column;
+      align-items: center;
+    }
+    .intro-image {
+      order: -1;
+      margin-bottom: 1.5em;
+    }
+  }
+</style>
+
+<div class="intro-container">
+  <div class="intro-text">
+    <p>Welcome! I'm currently a Master's student in Data Science at the University of California, San Diego. My research and personal projects are now focused on Machine Learning and Voice Recognition. I'm also interested in applying machine learning to <em>nature, ecology, and human-centered problems</em>.</p>
+
+    <p>Before UCSD, I earned my Bachelor's degree in Mathematics from the University of Wisconsin–Madison. My academic interests were mainly in graph theory and geometry. At UW, I worked as a research assistant in the <a href="https://peopleandrobots.wisc.edu/">People and Robots Laboratory</a>, contributing to human-robot interaction research under the mentorship of <a href="https://vision.wisc.edu/staff/yaxin_hu/">Yaxin Hu</a> and Prof. <a href="http://bilgemutlu.com/">Bilge Mutlu</a>. I also tutored Pre-Calculus and Calculus at the <a href="https://math.wisc.edu/undergraduate/mlc/">Math Learning Center</a>.</p>
+
+    <p>When I'm not coding or training models, you'll probably find me out snowboarding, kayaking, or trying not to panic while scuba diving off the SoCal coast. Nature helps me reset and think clearer. I also like to draw in my free time, usually scenes inspired by places I've been or memories I want to keep.</p>
+  </div>
+
+  <div class="intro-image">
+    <figure>
+      <img src="/assets/IMG_3393.JPG" alt="Me">
+      <figcaption>Sunset at Brooklyn, 2024.</figcaption>
+    </figure>
+  </div>
+</div>

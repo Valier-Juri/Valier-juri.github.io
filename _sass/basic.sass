@@ -14,6 +14,8 @@ body
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
 
+
+
 @media (prefers-color-scheme: dark)
   body
     background: $dark
@@ -23,6 +25,15 @@ h1, h2, h3, h4, h5, h6
   font-family: $font-family-serif
   color: $heading-color
   font-weight: $heading-weight
+  text-decoration: none // 移除下划线
+  
+  a
+    color: inherit // 继承标题颜色
+    text-decoration: none // 移除链接下划线
+    
+    &:hover
+      color: inherit // 悬停时保持原色
+      text-decoration: none // 悬停时无下划线
 
 b, strong, th
   font-weight: $font-weight + 200

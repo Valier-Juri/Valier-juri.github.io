@@ -1,26 +1,74 @@
 <link rel="stylesheet" href="{{ "/assets/css/sidebar.css" | relative_url }}" media="screen and (min-width: 70em)">
 <aside style="display: none">
-  <nav>
-  {%- for item in site.navigation -%}
-    {%- assign node = site.pages | where: "name", item.file | first -%}
-    {%- assign url = item.url | default: node.url -%}
-    {%- assign title = item.title | default: node.title -%}
-    {%- assign icon = item.icon | default: item.sidebaricon -%}
-    <a aria-label="{{ title }}" href="{{ url | relative_url }}" {% if url == page.url %}class="selected"{% endif %}>
-      <svg aria-hidden="true" class="icon"><use xlink:href="{{ "/assets/fontawesome/icons.svg" | relative_url }}#{{ icon }}"></use></svg>
-      <span aria-hidden="true">{{ title }}</span>
-    </a>
-  {%- endfor -%}
-  {%- for item in site.external -%}
-    {%- assign node = site.pages | where: "name", item.file | first -%}
-    {%- assign url = item.url | default: node.url -%}
-    {%- assign title = item.title | default: node.title -%}
-    {%- assign icon = item.icon | default: item.sidebaricon -%}
-    <a aria-label="{{ title }}" href="{{ url | relative_url }}" {% if url == page.url %}class="selected"{% endif %}>
-      <svg aria-hidden="true" class="icon"><use xlink:href="{{ "/assets/fontawesome/icons.svg" | relative_url }}#{{ icon }}"></use></svg>
-      <span aria-hidden="true">{{ title }}</span>
-    </a>
-  {%- endfor -%}
-  </nav>
-  <div class="description">{{ site.description }}</div>
+  <div class="sidebar-content">
+    <nav class="main-nav">
+    {%- for item in site.navigation -%}
+      {%- assign node = site.pages | where: "name", item.file | first -%}
+      {%- assign url = item.url | default: node.url -%}
+      {%- assign title = item.title | default: node.title -%}
+      {%- assign icon = item.icon | default: item.sidebaricon -%}
+      <a aria-label="{{ title }}" href="{{ url | relative_url }}" {% if url == page.url %}class="selected"{% endif %} data-nav-item>
+        <svg aria-hidden="true" class="icon"><use xlink:href="{{ "/assets/fontawesome/icons.svg" | relative_url }}#{{ icon }}"></use></svg>
+        <span aria-hidden="true">{{ title }}</span>
+        <div class="ripple-effect"></div>
+      </a>
+    {%- endfor -%}
+    </nav>
+    
+    <div class="sidebar-bottom">
+      <nav class="bottom-nav">
+      {%- for item in site.external -%}
+        {%- assign node = site.pages | where: "name", item.file | first -%}
+        {%- assign url = item.url | default: node.url -%}
+        {%- assign title = item.title | default: node.title -%}
+        {%- assign icon = item.icon | default: item.sidebaricon -%}
+        <a aria-label="{{ title }}" href="{{ url | relative_url }}" {% if url == page.url %}class="selected"{% endif %} data-nav-item>
+          <svg aria-hidden="true" class="icon"><use xlink:href="{{ "/assets/fontawesome/icons.svg" | relative_url }}#{{ icon }}"></use></svg>
+          <span aria-hidden="true">{{ title }}</span>
+          <div class="ripple-effect"></div>
+        </a>
+      {%- endfor -%}
+      </nav>
+      <div class="description">{{ site.description }}</div>
+    </div>
+  </div>
 </aside>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // 为所有导航链接添加点击波纹效果
+  const navItems = document.querySelectorAll('[data-nav-item]');
+  
+  navItems.forEach(item => {
+    item.addEventListener('click', function(e) {
+      // 创建波纹效果
+      const ripple = this.querySelector('.ripple-effect');
+      if (ripple) {
+        ripple.style.animation = 'none';
+        ripple.offsetHeight; // 触发重排
+        ripple.style.animation = 'gentleRipple 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+      }
+      
+      // 添加更柔和的点击反馈
+      this.style.transform = 'scale(0.98)'; // 减少缩放幅度
+      setTimeout(() => {
+        this.style.transform = '';
+      }, 200); // 增加持续时间
+    });
+    
+    // 添加键盘导航支持
+    item.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        this.click();
+      }
+    });
+  });
+  
+  // 为选中的导航项添加活跃状态动画
+  const selectedItem = document.querySelector('.selected');
+  if (selectedItem) {
+    selectedItem.style.animation = 'gentleSelectedPulse 3s ease-in-out infinite';
+  }
+});
+</script>
