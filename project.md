@@ -209,8 +209,8 @@ html[data-bs-theme="dark"] .project-links a:hover {
     <div class="project-title">Bird Call Recognition - BirdCLEF 2023-2025</div>
     <p>A sound-based classification project focused on identifying bird species from field recordings. The pipeline involves converting raw audio into spectrograms and engineered acoustic features, and training both classical and deep learning models for species recognition.</p>
     <div class="project-paper">
-      <a href="/assets/BirdCLEF.pdf" target="_blank">Stage 1 Report</a>
-      <a href="/assets/BirdCLEF.pdf" target="_blank">Stage 2 Report</a>
+      <a href="/assets/stage1.pdf" target="_blank">Report</a>
+      <a href="/assets/BirdCLEF.pdf" target="_blank">Paper</a>
     </div>
   </div>
 </div>

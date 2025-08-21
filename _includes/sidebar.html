@@ -4,12 +4,10 @@
 <div class="mobile-topbar">
   <div class="site-title">{{ site.title }}</div>
   <nav class="mobile-nav">
-    <a href="{{ "/" | relative_url }}" aria-label="Home">
-      <svg aria-hidden="true" class="icon" style="width: 16px; height: 16px;"><use xlink:href="{{ "/assets/fontawesome/icons.svg" | relative_url }}#home"></use></svg>
-    </a>
-    <a href="{{ "/blog" | relative_url }}" aria-label="Blog">Blog</a>
-    <a href="{{ "/project" | relative_url }}" aria-label="Projects">Projects</a>
-    <a href="{{ "/cv" | relative_url }}" aria-label="Resume">Resume</a>
+    <a href="{{ "/" | relative_url }}" aria-label="Home">🏠</a>
+    <a href="{{ "/blog" | relative_url }}" aria-label="Blog">📝</a>
+    <a href="{{ "/project" | relative_url }}" aria-label="Projects">💻</a>
+    <a href="{{ "/cv" | relative_url }}" aria-label="Resume">📃</a>
   </nav>
 </div>
 
@@ -71,6 +69,9 @@ document.addEventListener('DOMContentLoaded', function() {
         mobileTopbar.style.opacity = '1';
         mobileTopbar.style.pointerEvents = 'auto';
       }
+      
+      // 确保body有足够的上边距
+      document.body.style.paddingTop = '3rem';
     } else {
       // 桌面端：显示桌面端sidebar，隐藏移动端topbar
       if (desktopSidebar) {
@@ -85,6 +86,9 @@ document.addEventListener('DOMContentLoaded', function() {
         mobileTopbar.style.opacity = '0';
         mobileTopbar.style.pointerEvents = 'none';
       }
+      
+      // 重置body的上边距
+      document.body.style.paddingTop = '0';
     }
   }
 
@@ -128,5 +132,19 @@ document.addEventListener('DOMContentLoaded', function() {
   if (selectedItem) {
     selectedItem.style.animation = 'gentleSelectedPulse 3s ease-in-out infinite';
   }
+  
+  // 为移动端导航添加激活状态
+  const currentPath = window.location.pathname;
+  const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+  
+  mobileNavLinks.forEach(link => {
+    const linkPath = link.getAttribute('href');
+    if (linkPath === currentPath || 
+        (currentPath.includes('/blog/') && linkPath === '/blog') ||
+        (currentPath.includes('/project/') && linkPath === '/project') ||
+        (currentPath.includes('/cv/') && linkPath === '/cv')) {
+      link.classList.add('active');
+    }
+  });
 });
 </script>
