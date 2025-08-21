@@ -5,72 +5,15 @@ categories: [Website Updates, UI Improvements]
 date: 2025-08-20
 ---
 
-#  Major Website Update: Mobile Optimization & Dark Mode
+# Major Website Update: A Smoother Mobile Experience & Dark Mode
 
-I'm excited to announce that my personal website has undergone a major update! This update focuses primarily on comprehensive optimization for mobile user experience and visual comfort.
+I’ve just finished a big update to my personal website, and I’m really excited about how it turned out. The main focus was making the site much more enjoyable to use on mobile, along with adding full support for dark mode.
 
-## Comprehensive Mobile Optimization
+For a while, I noticed that browsing on a phone felt a little clunky: the layout didn’t always scale well, text could look cramped, and the navigation wasn’t as smooth as I wanted it to be. After spending some time rethinking the design, I’ve reworked the mobile experience so it feels lighter, cleaner, and more natural when you’re scrolling on a small screen.
+Another big addition is dark mode. If your device is set to use it, the site will now follow along :)
 
-### Responsive Navigation Bar
-- **Brand New Mobile Topbar**: Replaced the original sidebar with a more intuitive navigation experience on mobile devices
-- **Smart Icon Navigation**: Uses emoji icons instead of text to save screen space
-- **Adaptive Layout**: Automatically adjusts navigation item spacing and size based on screen dimensions
+This update has been in the works for a while, and it feels like a big step toward a more modern and comfortable browsing experience. Since I create another web app this summer, I've learned a lot from that experiences on UIUX and web design. Of course, I’ll keep improving things over time. There are still features I want to add, like better image handling and maybe even PWA support down the line.
 
-### Mobile Typography Optimization
-- **Title Hierarchy Optimization**: H1-H6 headings automatically scale down on mobile for better readability
-- **Extra Small Screen Adaptation**: Further optimized font sizes for devices under 480px
-- **Responsive Spacing**: Automatically adjusts page element spacing on mobile
+If you run into anything odd while browsing, or if you have ideas for making the site even better, I’d love to hear your feedback.
 
-### Technical Implementation Highlights
-- **Force Hide Desktop Sidebar**: Ensures no layout conflicts occur on mobile
-- **JavaScript Responsive Detection**: Dynamically detects screen size and switches navigation modes
-- **CSS Priority Management**: Uses `!important` to ensure mobile styles are properly applied
-
-## 🌙 Dark Mode Support
-
-### Dark Theme Adaptation
-- **Auto System Preference Detection**: Supports `prefers-color-scheme: dark` system settings
-- **Gradient Background Optimization**: Uses softer gradient colors in dark mode
-- **Text Contrast Optimization**: Ensures readability in dark mode
-
-### Visual Experience Enhancement
-- **Soft Shadow Effects**: Gentle shadows that reduce visual fatigue
-- **Smooth Transition Animations**: All interactive elements have fluid transitions
-- **Consistent Color Scheme**: Maintains visual consistency between dark and light modes
-
-## 🔧 Technical Improvement Details
-
-### File Structure Optimization
-- Added `mobile-fix.css` specifically for mobile styling
-- Refactored `sidebar.sass` to support responsive layout
-- Optimized JavaScript logic in `_includes/sidebar.html`
-
-### Performance Optimization
-- **CSS On-Demand Loading**: Mobile styles load only when needed
-- **Reduced Reflow/Repaint**: Optimized CSS animations and transitions
-- **Touch-Friendly Design**: 44px minimum touch target size
-
-## 📱 Mobile Testing Recommendations
-
-### Responsive Testing
-1. Test page layout across different screen sizes
-2. Check navigation bar display on various devices
-3. Verify font size and spacing adaptations
-
-### Functional Testing
-1. Test all navigation link functionality
-2. Check touch interaction smoothness
-3. Verify dark mode switching effects
-
-## 🚀 Future Plans
-
-- [ ] Add touch gesture support
-- [ ] Optimize mobile image loading
-- [ ] Implement PWA functionality
-- [ ] Add more interactive animations
-
----
-
-This update represents a significant leap forward in my website's mobile experience, while also providing a better browsing experience for users who prefer dark mode. If you encounter any issues or have suggestions for improvement, please feel free to provide feedback!
-
-*Update Date: August 20, 2025*
+*Updated August 20, 2025*
