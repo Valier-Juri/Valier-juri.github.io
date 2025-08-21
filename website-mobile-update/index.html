@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-<title>Markdown examples | Manlin Zhang</title>
+<title>Major Website Update: Mobile Optimization &amp; Dark Mode | Manlin Zhang</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="Manlin Zhang">
 <meta name="generator" content="Jekyll v4.2.2">
-<link rel="canonical" href="/markdown-examples/">
+<link rel="canonical" href="/website-mobile-update/">
 
 <link rel="stylesheet" href="/assets/css/index.css">
 
+<!-- 移动端修复CSS -->
+<link rel="stylesheet" href="/assets/css/mobile-fix.css">
 
 
 
@@ -19,12 +21,10 @@
 <div class="mobile-topbar">
   <div class="site-title">Manlin Zhang</div>
   <nav class="mobile-nav">
-    <a href="/" aria-label="Home">
-      <svg aria-hidden="true" class="icon" style="width: 16px; height: 16px;"><use xlink:href="/assets/fontawesome/icons.svg#home"></use></svg>
-    </a>
-    <a href="/blog" aria-label="Blog">Blog</a>
-    <a href="/project" aria-label="Projects">Projects</a>
-    <a href="/cv" aria-label="Resume">Resume</a>
+    <a href="/" aria-label="Home">🏠</a>
+    <a href="/blog" aria-label="Blog">📝</a>
+    <a href="/project" aria-label="Projects">💻</a>
+    <a href="/cv" aria-label="Resume">📃</a>
   </nav>
 </div>
 
@@ -90,6 +90,9 @@ document.addEventListener('DOMContentLoaded', function() {
         mobileTopbar.style.opacity = '1';
         mobileTopbar.style.pointerEvents = 'auto';
       }
+      
+      // 确保body有足够的上边距
+      document.body.style.paddingTop = '3rem';
     } else {
       // 桌面端：显示桌面端sidebar，隐藏移动端topbar
       if (desktopSidebar) {
@@ -104,6 +107,9 @@ document.addEventListener('DOMContentLoaded', function() {
         mobileTopbar.style.opacity = '0';
         mobileTopbar.style.pointerEvents = 'none';
       }
+      
+      // 重置body的上边距
+      document.body.style.paddingTop = '0';
     }
   }
 
@@ -147,6 +153,20 @@ document.addEventListener('DOMContentLoaded', function() {
   if (selectedItem) {
     selectedItem.style.animation = 'gentleSelectedPulse 3s ease-in-out infinite';
   }
+  
+  // 为移动端导航添加激活状态
+  const currentPath = window.location.pathname;
+  const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+  
+  mobileNavLinks.forEach(link => {
+    const linkPath = link.getAttribute('href');
+    if (linkPath === currentPath || 
+        (currentPath.includes('/blog/') && linkPath === '/blog') ||
+        (currentPath.includes('/project/') && linkPath === '/project') ||
+        (currentPath.includes('/cv/') && linkPath === '/cv')) {
+      link.classList.add('active');
+    }
+  });
 });
 </script>
 
@@ -161,129 +181,98 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <article>
   <header>
-  <h1><a href="/markdown-examples/">Markdown examples</a></h1><time datetime="2017-02-01T00:00:00+00:00">February 01, 2017</time>
+  <h1><a href="/website-mobile-update/">Major Website Update: Mobile Optimization & Dark Mode</a></h1><time datetime="2025-08-20T00:00:00+00:00">August 20, 2025</time>
 </header>
 
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  <h1 id="major-website-update-mobile-optimization--dark-mode">Major Website Update: Mobile Optimization &amp; Dark Mode</h1>
 
-<p>Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula. Donec lobortis risus a elit.</p>
+<p>I’m excited to announce that my personal website has undergone a major update! This update focuses primarily on comprehensive optimization for mobile user experience and visual comfort.</p>
 
-<h2 id="heading-two-h2">Heading Two (h2)</h2>
+<h2 id="comprehensive-mobile-optimization">Comprehensive Mobile Optimization</h2>
 
-<h3 id="heading-three-h3">Heading Three (h3)</h3>
+<h3 id="responsive-navigation-bar">Responsive Navigation Bar</h3>
+<ul>
+  <li><strong>Brand New Mobile Topbar</strong>: Replaced the original sidebar with a more intuitive navigation experience on mobile devices</li>
+  <li><strong>Smart Icon Navigation</strong>: Uses emoji icons instead of text to save screen space</li>
+  <li><strong>Adaptive Layout</strong>: Automatically adjusts navigation item spacing and size based on screen dimensions</li>
+</ul>
 
-<h4 id="heading-four-h4">Heading Four (h4)</h4>
+<h3 id="mobile-typography-optimization">Mobile Typography Optimization</h3>
+<ul>
+  <li><strong>Title Hierarchy Optimization</strong>: H1-H6 headings automatically scale down on mobile for better readability</li>
+  <li><strong>Extra Small Screen Adaptation</strong>: Further optimized font sizes for devices under 480px</li>
+  <li><strong>Responsive Spacing</strong>: Automatically adjusts page element spacing on mobile</li>
+</ul>
 
-<h5 id="heading-five-h5">Heading Five (h5)</h5>
+<h3 id="technical-implementation-highlights">Technical Implementation Highlights</h3>
+<ul>
+  <li><strong>Force Hide Desktop Sidebar</strong>: Ensures no layout conflicts occur on mobile</li>
+  <li><strong>JavaScript Responsive Detection</strong>: Dynamically detects screen size and switches navigation modes</li>
+  <li><strong>CSS Priority Management</strong>: Uses <code class="language-plaintext highlighter-rouge">!important</code> to ensure mobile styles are properly applied</li>
+</ul>
 
-<h6 id="heading-six-h6">Heading Six (h6)</h6>
+<h2 id="-dark-mode-support">🌙 Dark Mode Support</h2>
 
-<h2 id="blockquotes">Blockquotes</h2>
+<h3 id="dark-theme-adaptation">Dark Theme Adaptation</h3>
+<ul>
+  <li><strong>Auto System Preference Detection</strong>: Supports <code class="language-plaintext highlighter-rouge">prefers-color-scheme: dark</code> system settings</li>
+  <li><strong>Gradient Background Optimization</strong>: Uses softer gradient colors in dark mode</li>
+  <li><strong>Text Contrast Optimization</strong>: Ensures readability in dark mode</li>
+</ul>
 
-<h3 id="single-line">Single line</h3>
+<h3 id="visual-experience-enhancement">Visual Experience Enhancement</h3>
+<ul>
+  <li><strong>Soft Shadow Effects</strong>: Gentle shadows that reduce visual fatigue</li>
+  <li><strong>Smooth Transition Animations</strong>: All interactive elements have fluid transitions</li>
+  <li><strong>Consistent Color Scheme</strong>: Maintains visual consistency between dark and light modes</li>
+</ul>
 
-<blockquote>
-  <p>My mom always said life was like a box of chocolates. You never know what you’re gonna get.</p>
-</blockquote>
+<h2 id="-technical-improvement-details">🔧 Technical Improvement Details</h2>
 
-<h3 id="multiline">Multiline</h3>
+<h3 id="file-structure-optimization">File Structure Optimization</h3>
+<ul>
+  <li>Added <code class="language-plaintext highlighter-rouge">mobile-fix.css</code> specifically for mobile styling</li>
+  <li>Refactored <code class="language-plaintext highlighter-rouge">sidebar.sass</code> to support responsive layout</li>
+  <li>Optimized JavaScript logic in <code class="language-plaintext highlighter-rouge">_includes/sidebar.html</code></li>
+</ul>
 
-<blockquote>
-  <p>What do you get when you cross an insomniac, an unwilling agnostic and a dyslexic?</p>
+<h3 id="performance-optimization">Performance Optimization</h3>
+<ul>
+  <li><strong>CSS On-Demand Loading</strong>: Mobile styles load only when needed</li>
+  <li><strong>Reduced Reflow/Repaint</strong>: Optimized CSS animations and transitions</li>
+  <li><strong>Touch-Friendly Design</strong>: 44px minimum touch target size</li>
+</ul>
 
-  <p>You get someone who stays up all night torturing himself mentally over the question of whether or not there’s a dog.</p>
+<h2 id="-mobile-testing-recommendations">📱 Mobile Testing Recommendations</h2>
 
-  <p>– <em>Hal Incandenza</em></p>
-</blockquote>
+<h3 id="responsive-testing">Responsive Testing</h3>
+<ol>
+  <li>Test page layout across different screen sizes</li>
+  <li>Check navigation bar display on various devices</li>
+  <li>Verify font size and spacing adaptations</li>
+</ol>
 
-<h2 id="horizontal-rule">Horizontal Rule</h2>
+<h3 id="functional-testing">Functional Testing</h3>
+<ol>
+  <li>Test all navigation link functionality</li>
+  <li>Check touch interaction smoothness</li>
+  <li>Verify dark mode switching effects</li>
+</ol>
+
+<h2 id="-future-plans">🚀 Future Plans</h2>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Add touch gesture support</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Optimize mobile image loading</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Implement PWA functionality</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Add more interactive animations</li>
+</ul>
 
 <hr />
 
-<h2 id="table">Table</h2>
+<p>This update represents a significant leap forward in my website’s mobile experience, while also providing a better browsing experience for users who prefer dark mode. If you encounter any issues or have suggestions for improvement, please feel free to provide feedback!</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title 1</th>
-      <th>Title 2</th>
-      <th>Title 3</th>
-      <th>Title 4</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>First entry</td>
-      <td>Second entry</td>
-      <td>Third entry</td>
-      <td>Fourth entry</td>
-    </tr>
-    <tr>
-      <td>Fifth entry</td>
-      <td>Sixth entry</td>
-      <td>Seventh entry</td>
-      <td>Eight entry</td>
-    </tr>
-    <tr>
-      <td>Ninth entry</td>
-      <td>Tenth entry</td>
-      <td>Eleventh entry</td>
-      <td>Twelfth entry</td>
-    </tr>
-    <tr>
-      <td>Thirteenth entry</td>
-      <td>Fourteenth entry</td>
-      <td>Fifteenth entry</td>
-      <td>Sixteenth entry</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="code">Code</h2>
-
-<p>Source code can be included by fencing the code with three backticks. Syntax highlighting works automatically when specifying the language after the backticks.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>```javascript
-function foo () {
-    return "bar";
-}
-```
-</code></pre></div></div>
-
-<p>This would be rendered as:</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">foo</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="dl">"</span><span class="s2">bar</span><span class="dl">"</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<h2 id="lists">Lists</h2>
-
-<h3 id="unordered">Unordered</h3>
-
-<ul>
-  <li>First item</li>
-  <li>Second item</li>
-  <li>Third item
-    <ul>
-      <li>First nested item</li>
-      <li>Second nested item</li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="ordered">Ordered</h3>
-
-<ol>
-  <li>First item</li>
-  <li>Second item</li>
-  <li>Third item
-    <ol>
-      <li>First nested item</li>
-      <li>Second nested item</li>
-    </ol>
-  </li>
-</ol>
+<p><em>Update Date: August 20, 2025</em></p>
 
   
 </article>

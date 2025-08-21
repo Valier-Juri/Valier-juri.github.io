@@ -9,6 +9,8 @@
 
 <link rel="stylesheet" href="/assets/css/index.css">
 
+<!-- 移动端修复CSS -->
+<link rel="stylesheet" href="/assets/css/mobile-fix.css">
 
 
 <link rel="stylesheet" href="/assets/katex/katex.min.css">
@@ -23,12 +25,10 @@
 <div class="mobile-topbar">
   <div class="site-title">Manlin Zhang</div>
   <nav class="mobile-nav">
-    <a href="/" aria-label="Home">
-      <svg aria-hidden="true" class="icon" style="width: 16px; height: 16px;"><use xlink:href="/assets/fontawesome/icons.svg#home"></use></svg>
-    </a>
-    <a href="/blog" aria-label="Blog">Blog</a>
-    <a href="/project" aria-label="Projects">Projects</a>
-    <a href="/cv" aria-label="Resume">Resume</a>
+    <a href="/" aria-label="Home">🏠</a>
+    <a href="/blog" aria-label="Blog">📝</a>
+    <a href="/project" aria-label="Projects">💻</a>
+    <a href="/cv" aria-label="Resume">📃</a>
   </nav>
 </div>
 
@@ -94,6 +94,9 @@ document.addEventListener('DOMContentLoaded', function() {
         mobileTopbar.style.opacity = '1';
         mobileTopbar.style.pointerEvents = 'auto';
       }
+      
+      // 确保body有足够的上边距
+      document.body.style.paddingTop = '3rem';
     } else {
       // 桌面端：显示桌面端sidebar，隐藏移动端topbar
       if (desktopSidebar) {
@@ -108,6 +111,9 @@ document.addEventListener('DOMContentLoaded', function() {
         mobileTopbar.style.opacity = '0';
         mobileTopbar.style.pointerEvents = 'none';
       }
+      
+      // 重置body的上边距
+      document.body.style.paddingTop = '0';
     }
   }
 
@@ -151,6 +157,20 @@ document.addEventListener('DOMContentLoaded', function() {
   if (selectedItem) {
     selectedItem.style.animation = 'gentleSelectedPulse 3s ease-in-out infinite';
   }
+  
+  // 为移动端导航添加激活状态
+  const currentPath = window.location.pathname;
+  const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+  
+  mobileNavLinks.forEach(link => {
+    const linkPath = link.getAttribute('href');
+    if (linkPath === currentPath || 
+        (currentPath.includes('/blog/') && linkPath === '/blog') ||
+        (currentPath.includes('/project/') && linkPath === '/project') ||
+        (currentPath.includes('/cv/') && linkPath === '/cv')) {
+      link.classList.add('active');
+    }
+  });
 });
 </script>
 
@@ -168,7 +188,47 @@ document.addEventListener('DOMContentLoaded', function() {
   <h1><a href="/cv/">Resume</a></h1><time datetime=""></time>
 </header>
 
-  <object data="/assets/Resume_manlinzhang.pdf" width="800" height="1000" type="application/pdf"></object>
+  <div class="resume-container">
+  <object data="/assets/Resume_manlinzhang.pdf" width="100%" height="100%" type="application/pdf"></object>
+</div>
+
+<!-- 添加移动端备用链接 -->
+<div class="mobile-pdf-link">
+  <p>如果PDF无法正常显示，请<a href="/assets/Resume_manlinzhang.pdf" target="_blank">点击这里</a>直接查看或下载。</p>
+</div>
+
+<style>
+  .resume-container {
+    width: 100%;
+    max-width: 800px;
+    height: 85vh; /* 视口高度的85% */
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .mobile-pdf-link {
+    display: none;
+    text-align: center;
+    margin-top: 1em;
+    padding: 1em;
+    background: #f8f8f8;
+    border-radius: 8px;
+  }
+  
+  .mobile-pdf-link a {
+    color: #3a651d;
+    font-weight: bold;
+  }
+  
+  @media (max-width: 768px) {
+    .mobile-pdf-link {
+      display: block;
+    }
+  }
+</style>
+
 
   
 </article>

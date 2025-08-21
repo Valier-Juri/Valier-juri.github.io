@@ -9,6 +9,8 @@
 
 <link rel="stylesheet" href="/assets/css/index.css">
 
+<!-- 移动端修复CSS -->
+<link rel="stylesheet" href="/assets/css/mobile-fix.css">
 
 
 
@@ -19,12 +21,10 @@
 <div class="mobile-topbar">
   <div class="site-title">Manlin Zhang</div>
   <nav class="mobile-nav">
-    <a href="/" aria-label="Home">
-      <svg aria-hidden="true" class="icon" style="width: 16px; height: 16px;"><use xlink:href="/assets/fontawesome/icons.svg#home"></use></svg>
-    </a>
-    <a href="/blog" aria-label="Blog">Blog</a>
-    <a href="/project" aria-label="Projects">Projects</a>
-    <a href="/cv" aria-label="Resume">Resume</a>
+    <a href="/" aria-label="Home">🏠</a>
+    <a href="/blog" aria-label="Blog">📝</a>
+    <a href="/project" aria-label="Projects">💻</a>
+    <a href="/cv" aria-label="Resume">📃</a>
   </nav>
 </div>
 
@@ -90,6 +90,9 @@ document.addEventListener('DOMContentLoaded', function() {
         mobileTopbar.style.opacity = '1';
         mobileTopbar.style.pointerEvents = 'auto';
       }
+      
+      // 确保body有足够的上边距
+      document.body.style.paddingTop = '3rem';
     } else {
       // 桌面端：显示桌面端sidebar，隐藏移动端topbar
       if (desktopSidebar) {
@@ -104,6 +107,9 @@ document.addEventListener('DOMContentLoaded', function() {
         mobileTopbar.style.opacity = '0';
         mobileTopbar.style.pointerEvents = 'none';
       }
+      
+      // 重置body的上边距
+      document.body.style.paddingTop = '0';
     }
   }
 
@@ -147,6 +153,20 @@ document.addEventListener('DOMContentLoaded', function() {
   if (selectedItem) {
     selectedItem.style.animation = 'gentleSelectedPulse 3s ease-in-out infinite';
   }
+  
+  // 为移动端导航添加激活状态
+  const currentPath = window.location.pathname;
+  const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+  
+  mobileNavLinks.forEach(link => {
+    const linkPath = link.getAttribute('href');
+    if (linkPath === currentPath || 
+        (currentPath.includes('/blog/') && linkPath === '/blog') ||
+        (currentPath.includes('/project/') && linkPath === '/project') ||
+        (currentPath.includes('/cv/') && linkPath === '/cv')) {
+      link.classList.add('active');
+    }
+  });
 });
 </script>
 
@@ -804,6 +824,23 @@ document.addEventListener('DOMContentLoaded', function() {
       
       <article class="post-item">
         <h3 class="post-title">
+          <a href="/website-mobile-update/">Major Website Update: Mobile Optimization &amp; Dark Mode</a>
+        </h3>
+        <div class="post-meta">
+          <time datetime="2025-08-20T00:00:00+00:00">
+            August 20, 2025
+          </time>
+          
+            • Website Updates, UI Improvements
+          
+        </div>
+        <div class="post-excerpt">
+          Major Website Update: Mobile Optimization &amp; Dark Mode I’m excited to announce that my personal website has undergone a major update! This update focuses primarily...
+        </div>
+      </article>
+      
+      <article class="post-item">
+        <h3 class="post-title">
           <a href="/welcome-to-my-blog/">Welcome to My Blog</a>
         </h3>
         <div class="post-meta">
@@ -816,40 +853,6 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
         <div class="post-excerpt">
           Welcome to my new blog where I'll be sharing thoughts on data science, machine learning, and life experiences.
-        </div>
-      </article>
-      
-      <article class="post-item">
-        <h3 class="post-title">
-          <a href="/welcome-to-jekyll/">Welcome to Jekyll</a>
-        </h3>
-        <div class="post-meta">
-          <time datetime="2017-03-01T00:00:00+00:00">
-            March 01, 2017
-          </time>
-          
-            • 
-          
-        </div>
-        <div class="post-excerpt">
-          You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the...
-        </div>
-      </article>
-      
-      <article class="post-item">
-        <h3 class="post-title">
-          <a href="/markdown-examples/">Markdown examples</a>
-        </h3>
-        <div class="post-meta">
-          <time datetime="2017-02-01T00:00:00+00:00">
-            February 01, 2017
-          </time>
-          
-            • 
-          
-        </div>
-        <div class="post-excerpt">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis...
         </div>
       </article>
       
